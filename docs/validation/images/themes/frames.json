@@ -1,0 +1,219 @@
+{
+  "storyboard": "themes",
+  "title": "E7 \u2014 os quatro temas",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "dark",
+      "caption": "O tema escuro, o padr\u00e3o, com uma camada no canvas.",
+      "file": "01_dark.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          15,
+          17,
+          21
+        ],
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          39,
+          130,
+          140
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 3099,
+      "blank": false,
+      "facts": {
+        "chosen": "dark",
+        "painted": "dark",
+        "layers": 1,
+        "panels": 6
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "light",
+      "caption": "O tema claro. S\u00f3 as cores mudam: as bordas dos pain\u00e9is caem exatamente nas mesmas colunas.",
+      "file": "02_light.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          246,
+          247,
+          249
+        ],
+        "workflow": [
+          255,
+          255,
+          255
+        ],
+        "layers": [
+          224,
+          225,
+          228
+        ],
+        "canvas": [
+          39,
+          130,
+          140
+        ],
+        "inspector": [
+          48,
+          130,
+          211
+        ],
+        "statusbar": [
+          238,
+          240,
+          244
+        ]
+      },
+      "changed_fraction": 0.6039,
+      "distinct_colours": 3108,
+      "blank": false,
+      "facts": {
+        "chosen": "light",
+        "painted": "light",
+        "layers": 1,
+        "panels": 6
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "high_contrast",
+      "caption": "Alto contraste \u2014 uma terceira paleta, com texto e bordas em 7:1 ou mais, medidos por `--only theme`.",
+      "file": "03_high_contrast.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          0,
+          0,
+          0
+        ],
+        "workflow": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          19,
+          19,
+          19
+        ],
+        "canvas": [
+          39,
+          130,
+          140
+        ],
+        "inspector": [
+          84,
+          183,
+          216
+        ],
+        "statusbar": [
+          16,
+          16,
+          16
+        ]
+      },
+      "changed_fraction": 0.5954,
+      "distinct_colours": 1891,
+      "blank": false,
+      "facts": {
+        "chosen": "highContrast",
+        "painted": "highContrast",
+        "layers": 1,
+        "panels": 6
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "system",
+      "caption": "Autom\u00e1tico, seguindo uma \u00e1rea de trabalho clara: id\u00eantico ao tema claro, pixel a pixel.",
+      "file": "04_system.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          246,
+          247,
+          249
+        ],
+        "workflow": [
+          255,
+          255,
+          255
+        ],
+        "layers": [
+          224,
+          225,
+          228
+        ],
+        "canvas": [
+          39,
+          130,
+          140
+        ],
+        "inspector": [
+          48,
+          130,
+          211
+        ],
+        "statusbar": [
+          238,
+          240,
+          244
+        ]
+      },
+      "changed_fraction": 0.5954,
+      "distinct_colours": 3108,
+      "blank": false,
+      "facts": {
+        "chosen": "system",
+        "painted": "light",
+        "layers": 1,
+        "panels": 6,
+        "pixelsDifferingFromLight": 0
+      },
+      "failures": []
+    }
+  ]
+}

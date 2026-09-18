@@ -1,0 +1,329 @@
+{
+  "storyboard": "m4",
+  "title": "M4 \u2014 GeoCanvas nativo",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "empty_canvas",
+      "caption": "The shell with no layer: every section that has not landed names its milestone.",
+      "file": "01_empty_canvas.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          0,
+          0,
+          0
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 1645,
+      "blank": false,
+      "facts": {
+        "layer": "none"
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "large_layer_fit",
+      "caption": "16.8 Mpx fitted to the window. The badge states the view is decimated and that values are read at full resolution.",
+      "file": "02_large_layer_fit.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          41,
+          124,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.3313,
+      "distinct_colours": 2966,
+      "blank": false,
+      "facts": {
+        "lod": 4,
+        "read": 1310720,
+        "valid": 98.9
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "zoomed_once",
+      "caption": "Zoomed in: a finer level is chosen and more detail appears, but the pixel count read stays screen-sized.",
+      "file": "03_zoomed_once.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          45,
+          115,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.359,
+      "distinct_colours": 1991,
+      "blank": false,
+      "facts": {
+        "lod": 1,
+        "read": 1654136
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "zoomed_full_res",
+      "caption": "Zoomed to full resolution \u2014 the level reaches 1:1 and the scale bar shrinks with it.",
+      "file": "04_zoomed_full_res.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          46,
+          114,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.1502,
+      "distinct_colours": 1835,
+      "blank": false,
+      "facts": {
+        "lod": 1,
+        "read": 1659176
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "back_to_fit",
+      "caption": "Back to the whole layer, at the coarse level again \u2014 and the same colour as before the zoom, because the stretch belongs to the layer, not to the view.",
+      "file": "05_back_to_fit.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          41,
+          124,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.3576,
+      "distinct_colours": 2966,
+      "blank": false,
+      "facts": {
+        "lod": 4
+      },
+      "failures": []
+    },
+    {
+      "index": 6,
+      "name": "aoi_drawn",
+      "caption": "An area of interest, saved as version 1 with its CRS, its vertices and its area.",
+      "file": "06_aoi_drawn.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          41,
+          124,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0014,
+      "distinct_colours": 2966,
+      "blank": false,
+      "facts": {
+        "aoi_version": 1,
+        "area_km2": 110.0
+      },
+      "failures": []
+    },
+    {
+      "index": 7,
+      "name": "split_view",
+      "caption": "Two layers on one viewport, at the same extent and the same scale, each named above its half.",
+      "file": "07_split_view.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          41,
+          124,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.1368,
+      "distinct_colours": 3322,
+      "blank": false,
+      "facts": {
+        "left": "large_field",
+        "right": "large_field_b"
+      },
+      "failures": []
+    },
+    {
+      "index": 8,
+      "name": "difference_map",
+      "caption": "A - B computed by the worker on the shared grid, drawn with a diverging ramp centred on zero.",
+      "file": "08_difference_map.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          30,
+          34,
+          43
+        ],
+        "canvas": [
+          151,
+          212,
+          76
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.3501,
+      "distinct_colours": 3065,
+      "blank": false,
+      "facts": {
+        "job": "Succeeded",
+        "runs": 1
+      },
+      "failures": []
+    }
+  ]
+}

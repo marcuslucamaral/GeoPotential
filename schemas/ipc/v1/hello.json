@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/hello.json",
+  "title": "hello",
+  "description": "worker -> app. Protocol 1.0.0. A major-version mismatch blocks execution; it never degrades into a partial mode where some operators work.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "protocol",
+    "app",
+    "worker",
+    "capabilities"
+  ],
+  "properties": {
+    "type": {
+      "const": "hello"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "app": {
+      "type": "string"
+    },
+    "worker": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array"
+    }
+  }
+}

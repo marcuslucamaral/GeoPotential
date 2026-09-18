@@ -1,0 +1,255 @@
+{
+  "storyboard": "other_domain",
+  "title": "Outro dom\u00ednio \u2014 suscetibilidade a deslizamento",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "layers",
+      "caption": "Tr\u00eas camadas de suscetibilidade a deslizamento \u2014 declividade, TWI e geologia \u2014 em EPSG:5186. Nenhum gate anterior tinha sa\u00eddo do EPSG:26912 de Utah.",
+      "file": "01_layers.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          23,
+          26,
+          33
+        ],
+        "workflow": [
+          104,
+          110,
+          124
+        ],
+        "canvas": [
+          68,
+          1,
+          84
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "topbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 3288,
+      "blank": false,
+      "facts": {
+        "layers": 3,
+        "crs": "EPSG:5186"
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "circular",
+      "caption": "O editor de pertin\u00eancia na curva circular, a \u00fanica correta para azimute: 359\u00b0 e 1\u00b0 est\u00e3o a dois graus um do outro, e toda curva linear os p\u00f5e nas pontas opostas.",
+      "file": "02_circular.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          21,
+          24,
+          31
+        ],
+        "workflow": [
+          97,
+          102,
+          115
+        ],
+        "canvas": [
+          30,
+          34,
+          43
+        ],
+        "inspector": [
+          21,
+          24,
+          31
+        ],
+        "topbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.3597,
+      "distinct_colours": 3162,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "function": "circular",
+        "preferred": "180",
+        "sense": "a direction is most favourable",
+        "value_spread": "5",
+        "angular_spread": "90"
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "classes",
+      "caption": "A tabela de classes sobre a geologia: um c\u00f3digo por linha, com a \u00e1rea que ocupa e a nota que recebe. Aplicar espera a tabela inteira \u2014 pontuar zero uma classe \u00e9 uma afirma\u00e7\u00e3o cient\u00edfica.",
+      "file": "03_classes.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          21,
+          24,
+          31
+        ],
+        "workflow": [
+          97,
+          102,
+          115
+        ],
+        "canvas": [
+          23,
+          26,
+          33
+        ],
+        "inspector": [
+          21,
+          24,
+          31
+        ],
+        "topbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.0586,
+      "distinct_colours": 3348,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "codes": 4,
+        "described": true,
+        "missing_before": 4,
+        "apply_before": false,
+        "missing_after": 0,
+        "apply_after": true,
+        "named": 3,
+        "unnamed": 1,
+        "legend": "sidecar"
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "mixed",
+      "caption": "Cont\u00ednuo e categ\u00f3rico na mesma agrega\u00e7\u00e3o, com a tabela de classes na proced\u00eancia. Era o defeito: `categorical` estava no m\u00f3dulo e n\u00e3o ligada ao operador.",
+      "file": "04_mixed.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          23,
+          26,
+          33
+        ],
+        "workflow": [
+          104,
+          110,
+          124
+        ],
+        "canvas": [
+          166,
+          214,
+          69
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "topbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.4302,
+      "distinct_colours": 23445,
+      "blank": false,
+      "facts": {
+        "operator": "decision.aggregate",
+        "criteria": 3,
+        "functions": "categorical, linear_increasing",
+        "valid": 99.6,
+        "class_table": 4,
+        "crs": "EPSG:5186",
+        "artifacts": 1
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "sensitivity",
+      "caption": "E a sensibilidade do M6 sobre esta an\u00e1lise: os cen\u00e1rios s\u00e3o do produto, n\u00e3o do dataset geot\u00e9rmico.",
+      "file": "05_sensitivity.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          21,
+          24,
+          31
+        ],
+        "workflow": [
+          97,
+          102,
+          115
+        ],
+        "canvas": [
+          23,
+          26,
+          33
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "topbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.4089,
+      "distinct_colours": 7075,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "pressed": true,
+        "rows": 3,
+        "first": "TWI",
+        "cells": 856695
+      },
+      "failures": []
+    }
+  ]
+}

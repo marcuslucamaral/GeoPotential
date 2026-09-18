@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/job_failed.json",
+  "title": "job_failed",
+  "description": "worker -> app. Protocol 1.0.0. `safe_message` reaches the user; `detail_ref` points at the worker log line holding the traceback.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "job_id",
+    "code",
+    "safe_message",
+    "detail_ref"
+  ],
+  "properties": {
+    "type": {
+      "const": "job_failed"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "safe_message": {
+      "type": "string"
+    },
+    "detail_ref": {
+      "type": "string"
+    }
+  }
+}

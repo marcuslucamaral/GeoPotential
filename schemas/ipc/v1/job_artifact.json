@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/job_artifact.json",
+  "title": "job_artifact",
+  "description": "worker -> app. Protocol 1.0.0. Section 12.3 names the artefact's format field `type`. The envelope owns `type` as the message kind, so the artefact's is `artifact_type`. Emitted only after write, flush, close, validation and hash.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "job_id",
+    "artifact_id",
+    "path",
+    "artifact_type",
+    "hash"
+  ],
+  "properties": {
+    "type": {
+      "const": "job_artifact"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "type": "string"
+    },
+    "hash": {
+      "type": "string"
+    }
+  }
+}

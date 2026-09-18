@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/goodbye.json",
+  "title": "goodbye",
+  "description": "worker -> app. Protocol 1.0.0.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "reason"
+  ],
+  "properties": {
+    "type": {
+      "const": "goodbye"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    }
+  }
+}

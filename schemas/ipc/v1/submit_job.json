@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/submit_job.json",
+  "title": "submit_job",
+  "description": "app -> worker. Protocol 1.0.0.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "job_id",
+    "operator",
+    "params",
+    "inputs",
+    "output_dir"
+  ],
+  "properties": {
+    "type": {
+      "const": "submit_job"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "operator": {
+      "type": "string"
+    },
+    "params": {
+      "type": "object"
+    },
+    "inputs": {
+      "type": "array"
+    },
+    "output_dir": {
+      "type": "string"
+    }
+  }
+}

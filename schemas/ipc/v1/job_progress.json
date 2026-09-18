@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/job_progress.json",
+  "title": "job_progress",
+  "description": "worker -> app. Protocol 1.0.0. `fraction` is derived from work actually done and is monotonic within a stage. Simulated progress is a defect.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "job_id",
+    "stage",
+    "fraction",
+    "message"
+  ],
+  "properties": {
+    "type": {
+      "const": "job_progress"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "fraction": {
+      "type": "number"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

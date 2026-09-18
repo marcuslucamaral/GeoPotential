@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/cancel_job.json",
+  "title": "cancel_job",
+  "description": "app -> worker. Protocol 1.0.0. Cancellation is cooperative. A cancelled job commits no run and registers no artefact.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "job_id",
+    "reason"
+  ],
+  "properties": {
+    "type": {
+      "const": "cancel_job"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    }
+  }
+}

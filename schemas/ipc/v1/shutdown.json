@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/shutdown.json",
+  "title": "shutdown",
+  "description": "app -> worker. Protocol 1.0.0. The worker completes the transaction in flight or records recovery before exiting.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "deadline"
+  ],
+  "properties": {
+    "type": {
+      "const": "shutdown"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "deadline": {
+      "type": "string"
+    }
+  }
+}

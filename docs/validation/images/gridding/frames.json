@@ -1,0 +1,208 @@
+{
+  "storyboard": "gridding",
+  "title": "M5.6 \u2014 dado esparso vira crit\u00e9rio",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "imported",
+      "caption": "O CSV no projeto: amostras desenhadas, e nenhuma delas harmoniz\u00e1vel \u2014 harmoniza\u00e7\u00e3o l\u00ea raster.",
+      "file": "01_imported.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          56,
+          167,
+          124
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 2373,
+      "blank": false,
+      "facts": {
+        "datasets": 1,
+        "layers": 1,
+        "harmonisable": 0,
+        "griddable": 1
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "chosen",
+      "caption": "A tela de gerar grade, com o m\u00e9todo escolhido e o aviso de que IDW estima valor onde nada foi medido.",
+      "file": "02_chosen.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          21,
+          24,
+          31
+        ],
+        "layers": [
+          35,
+          39,
+          46
+        ],
+        "canvas": [
+          15,
+          17,
+          21
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.2465,
+      "distinct_colours": 3727,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "method": "grid.idw",
+        "interpolates": true,
+        "ready": true
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "gridded",
+      "caption": "O campo interpolado no canvas, e o raster que saiu j\u00e1 entra na harmoniza\u00e7\u00e3o.",
+      "file": "03_gridded.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          51,
+          161,
+          126
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.3436,
+      "distinct_colours": 29215,
+      "blank": false,
+      "facts": {
+        "pressed": true,
+        "operator": "grid.idw",
+        "grid": "369x297",
+        "pixel": 200.0,
+        "valid": 37.3,
+        "artifacts": 1,
+        "harmonisable": 1
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "policies",
+      "caption": "As duas pol\u00edticas de extens\u00e3o medidas antes de escolher: a uni\u00e3o d\u00e1 uma grade maior e a mesma \u00e1rea com score. Sonda read-only, nenhuma run registrada.",
+      "file": "04_policies.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          21,
+          24,
+          31
+        ],
+        "layers": [
+          35,
+          39,
+          46
+        ],
+        "canvas": [
+          30,
+          34,
+          43
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.2472,
+      "distinct_colours": 16788,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "pressed": true,
+        "offered": 2,
+        "intersection_cells": 1968,
+        "intersection_scored": 84.4,
+        "union_cells": 109593,
+        "union_scored": 1.5,
+        "scored_cells_intersection": 1661,
+        "scored_cells_union": 1661,
+        "runs_before": 1,
+        "runs_after": 1
+      },
+      "failures": []
+    }
+  ]
+}

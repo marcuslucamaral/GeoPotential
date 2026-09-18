@@ -1,0 +1,253 @@
+{
+  "storyboard": "m5",
+  "title": "M5 \u2014 Geothermal Decision Engine",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "qc",
+      "caption": "The layer, checked before anything is computed with it.",
+      "file": "01_qc.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          41,
+          124,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 2973,
+      "blank": false,
+      "facts": {
+        "usable": true,
+        "severity": "INFO"
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "harmonized",
+      "caption": "Two layers brought onto one target grid in EPSG:26912 at 40 m \u2014 the step every later one assumes.",
+      "file": "02_harmonized.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          30,
+          34,
+          43
+        ],
+        "canvas": [
+          41,
+          124,
+          140
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0743,
+      "distinct_colours": 3200,
+      "blank": false,
+      "facts": {
+        "grid": "1024x1024",
+        "crs": "EPSG:26912",
+        "layers": 2
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "membership_editor",
+      "caption": "MSP-07's five things at once: histogram, curve, unit, physical sense and the range they act on.",
+      "file": "03_membership_editor.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          28,
+          32,
+          40
+        ],
+        "canvas": [
+          71,
+          143,
+          223
+        ],
+        "inspector": [
+          21,
+          24,
+          31
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.3618,
+      "distinct_colours": 2850,
+      "blank": false,
+      "facts": {
+        "function": "linear_increasing",
+        "sense": "more is more favourable"
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "decision_model",
+      "caption": "Weights from a comparison matrix, with the consistency ratio on screen beside them.",
+      "file": "04_decision_model.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          28,
+          32,
+          40
+        ],
+        "canvas": [
+          23,
+          26,
+          33
+        ],
+        "inspector": [
+          21,
+          24,
+          31
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.1632,
+      "distinct_colours": 2930,
+      "blank": false,
+      "facts": {
+        "cr": 0.0,
+        "consistent": true,
+        "w_heat": 0.75
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "inconsistent_refused",
+      "caption": "CR above the threshold: Run is disabled, the reason is on the button, and the correlated pair is named.",
+      "file": "05_inconsistent_refused.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          28,
+          32,
+          40
+        ],
+        "canvas": [
+          23,
+          26,
+          33
+        ],
+        "inspector": [
+          21,
+          24,
+          31
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.0272,
+      "distinct_colours": 2912,
+      "blank": false,
+      "facts": {
+        "cr": 0.8623,
+        "run_enabled": false
+      },
+      "failures": []
+    },
+    {
+      "index": 6,
+      "name": "prospectivity",
+      "caption": "The suitability map: Fuzzy Gamma at 0.7 over the normalized stack, in [0,1], with a manifest that reproduces it.",
+      "file": "06_prospectivity.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          131,
+          208,
+          83
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.4345,
+      "distinct_colours": 3240,
+      "blank": false,
+      "facts": {
+        "method": "fuzzy_gamma",
+        "range": "0.000-0.981",
+        "valid": 98.9
+      },
+      "failures": []
+    }
+  ]
+}

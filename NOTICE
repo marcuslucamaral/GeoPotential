@@ -1,0 +1,28 @@
+GeoPotential
+Copyright 2026 Marcus L. A. do Amaral
+
+This product includes software developed by the GeoPotential authors.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy of
+the License in the LICENSE file distributed with this work, or at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+The method this software implements is described in:
+
+    do Amaral, M.L.A.; Caldeira, M.C.O.; de Figueiredo, J.J.S.;
+    Da Silveira, J.R.B.S. (2026). Integration of geophysical data and
+    multicriteria decision analysis for geothermal assessment at
+    Utah FORGE. Geothermics 136, 103590.
+    https://doi.org/10.1016/j.geothermics.2025.103590
+
+--------------------------------------------------------------------------
+THIRD-PARTY DATA
+
+The datasets under data/ are NOT covered by the Apache License. Each keeps
+the licence it was published under, and those licences require attribution to
+travel with any redistribution — including redistribution inside a packaged
+build. The attributions are reproduced below and in THIRD-PARTY-NOTICES.md.
+
+Contains British Geological Survey materials (c) UKRI 2021.

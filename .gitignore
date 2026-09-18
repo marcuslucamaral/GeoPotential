@@ -1,0 +1,44 @@
+# Build outputs — never sources, never committed.
+build/
+dist/
+*.spec.bak
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.python-version
+
+# Project files the application writes. A `.gpot` is somebody's analysis:
+# it carries their data paths, their layer names, their judgements and the
+# provenance of every run they made. It is theirs and it does not belong in a
+# repository.
+*.gpot/
+*.gpot
+project.sqlite*
+artifacts/
+
+# Generated fixtures. Seeded and rebuilt by `tools/make_synthetic_data.py`,
+# so committing them would store a second copy that drifts from the generator.
+data/synthetic/
+
+# Basemap tile cache. Fetched from a third party, cached per project, and
+# redistributing somebody else's tiles is not ours to do.
+tile-cache/
+*.mbtiles
+
+# Local settings and state
+.env
+*.local.ini
+preferences.ini
+.DS_Store
+*~
+*.swp
+
+# Editors
+.idea/
+.vscode/

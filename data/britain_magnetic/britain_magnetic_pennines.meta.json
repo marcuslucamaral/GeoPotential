@@ -1,0 +1,7 @@
+{
+  "source_crs": "EPSG:4326",
+  "unit": "nT",
+  "x_field": "longitude",
+  "y_field": "latitude",
+  "value_field": "total_field_anomaly_nt"
+}

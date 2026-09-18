@@ -1,0 +1,21 @@
+# GeoPotential — runtime dependencies.
+#
+# The geospatial stack builds against system GDAL/PROJ headers. On Ubuntu:
+#     sudo apt install libgdal-dev gdal-bin python3.11-venv
+# With conda these arrive as binaries and no system packages are needed:
+#     conda install -c conda-forge pyside6 rasterio geopandas pyproj shapely scipy pandas
+#
+# Versions are the ones the 37-check gate is green against.
+PySide6==6.10.1
+numpy>=2.0
+scipy>=1.11
+pandas>=2.0
+rasterio>=1.4
+geopandas>=1.0
+pyproj>=3.7
+shapely>=2.0
+affine>=2.4
+
+# Only for tools/make_demo_video.py. Ships a static ffmpeg inside the
+# environment, so nothing is installed on the machine.
+imageio-ffmpeg>=0.5 ; extra == "demo"

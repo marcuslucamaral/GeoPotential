@@ -1,0 +1,7 @@
+{
+  "source_crs": "EPSG:4326",
+  "unit": "mGal",
+  "x_field": "longitude",
+  "y_field": "latitude",
+  "value_field": "gravity_mgal"
+}

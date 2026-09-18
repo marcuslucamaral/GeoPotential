@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "geopotential/ipc/v1/job_succeeded.json",
+  "title": "job_succeeded",
+  "description": "worker -> app. Protocol 1.0.0. `Succeeded` is reachable only from `Committing`, so this message never describes a partial output.",
+  "type": "object",
+  "required": [
+    "type",
+    "protocol",
+    "job_id",
+    "manifest"
+  ],
+  "properties": {
+    "type": {
+      "const": "job_succeeded"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "manifest": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "storyboard": "interpolation",
+  "title": "M5.7 \u2014 o m\u00e9todo \u00e9 medido, n\u00e3o suposto",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "imported",
+      "caption": "O CSV numa malha regular de 125 m entra no projeto, e a tela passa a oferecer os tr\u00eas interpoladores do QGIS, n\u00e3o s\u00f3 o IDW.",
+      "file": "01_imported.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          0,
+          0,
+          0
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 2311,
+      "blank": false,
+      "facts": {
+        "datasets": 1,
+        "layers": 1,
+        "methods": 4,
+        "has_tin": true,
+        "spacing": 125.0
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "measured",
+      "caption": "O worker separa um quinto das amostras e mede o erro de cada m\u00e9todo. Nada \u00e9 gravado: \u00e9 uma sondagem, e a escolha continua sendo de quem opera.",
+      "file": "02_measured.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          21,
+          24,
+          31
+        ],
+        "layers": [
+          35,
+          39,
+          46
+        ],
+        "canvas": [
+          15,
+          17,
+          21
+        ],
+        "inspector": [
+          21,
+          24,
+          31
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.2459,
+      "distinct_colours": 3748,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "pressed": true,
+        "scored": 3,
+        "recommended": "grid.tin_cubic",
+        "idw_rmse": 0.07658,
+        "cubic_rmse": 0.04109,
+        "runs": 0
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "controls",
+      "caption": "Escolher um m\u00e9todo triangulado troca os controles: some o raio de busca, que ele n\u00e3o tem, e aparece a dist\u00e2ncia m\u00e1xima, que ele aceita. Aparece tamb\u00e9m o aviso do c\u00fabico.",
+      "file": "03_controls.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          21,
+          24,
+          31
+        ],
+        "layers": [
+          35,
+          39,
+          46
+        ],
+        "canvas": [
+          15,
+          17,
+          21
+        ],
+        "inspector": [
+          21,
+          24,
+          31
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.0653,
+      "distinct_colours": 3742,
+      "blank": false,
+      "facts": {
+        "method": "grid.tin_cubic",
+        "interpolates": true,
+        "usesRadius": false,
+        "triangulated": true,
+        "radius_visible": false,
+        "maxdist_visible": true,
+        "ready": true
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "recommended",
+      "caption": "O m\u00e9todo recomendado roda, e o manifesto registra o que limitou a superf\u00edcie e quanto ela passou do intervalo das amostras.",
+      "file": "04_recommended.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          55,
+          87,
+          139
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.3632,
+      "distinct_colours": 10579,
+      "blank": false,
+      "facts": {
+        "pressed": true,
+        "chose": "grid.tin_cubic",
+        "operator": "grid.tin_cubic",
+        "method": "tin_cubic",
+        "bounded_by": "convex hull of the samples",
+        "span": 2.7755,
+        "valid": 100.0,
+        "overshoot_reported": true,
+        "artifacts": 1
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "idw_contrast",
+      "caption": "O IDW na mesma grade, para contraste: a m\u00e9dia ponderada alcan\u00e7a menos da faixa do dado do que o m\u00e9todo recomendado.",
+      "file": "05_idw_contrast.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          51,
+          99,
+          139
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0143,
+      "distinct_colours": 8904,
+      "blank": false,
+      "facts": {
+        "pressed": true,
+        "operator": "grid.idw",
+        "idw_span": 2.6258,
+        "recommended_span": 2.7755,
+        "runs": 2,
+        "harmonisable": 2
+      },
+      "failures": []
+    }
+  ]
+}

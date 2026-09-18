@@ -1,0 +1,218 @@
+{
+  "storyboard": "shell",
+  "title": "M5.8 \u2014 a interface repaginada",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "opened",
+      "caption": "A janela como ela abre: a trilha de \u00edcones \u00e0 esquerda, o fluxo em uma linha por etapa, o mapa, o Inspector. Cada bot\u00e3o \u00e9 um \u00edcone e cada \u00edcone tem a sua palavra na dica.",
+      "file": "01_opened.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          23,
+          26,
+          33
+        ],
+        "workflow": [
+          104,
+          110,
+          124
+        ],
+        "layers": [
+          42,
+          46,
+          54
+        ],
+        "canvas": [
+          64,
+          174,
+          118
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "topbar": [
+          23,
+          26,
+          33
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 2889,
+      "blank": false,
+      "facts": {
+        "rail": true,
+        "railWidth": 44,
+        "iconButtons": 25,
+        "withTip": 25,
+        "iconsMissing": 0,
+        "missing": "",
+        "layers": 1
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "rail_hidden",
+      "caption": "Exibir \u203a Trilha de \u00edcones: a trilha some, e a escolha fica guardada como a de qualquer outro painel.",
+      "file": "02_rail_hidden.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          132,
+          140,
+          157
+        ],
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          42,
+          46,
+          54
+        ],
+        "canvas": [
+          42,
+          153,
+          133
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "topbar": [
+          23,
+          26,
+          33
+        ]
+      },
+      "changed_fraction": 0.2192,
+      "distinct_colours": 2806,
+      "blank": false,
+      "facts": {
+        "railVisible": false,
+        "remembered": false,
+        "widthBefore": 44
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "rail_back",
+      "caption": "E volta, com a mesma largura \u2014 um interruptor que s\u00f3 vai para um lado \u00e9 um bot\u00e3o de apagar.",
+      "file": "03_rail_back.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          23,
+          26,
+          33
+        ],
+        "workflow": [
+          104,
+          110,
+          124
+        ],
+        "layers": [
+          42,
+          46,
+          54
+        ],
+        "canvas": [
+          63,
+          173,
+          119
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "topbar": [
+          23,
+          26,
+          33
+        ]
+      },
+      "changed_fraction": 0.2149,
+      "distinct_colours": 3118,
+      "blank": false,
+      "facts": {
+        "railVisible": true,
+        "railWidth": 44,
+        "widthBefore": 44
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "light",
+      "caption": "O tema claro. Um \u00edcone com cor pr\u00f3pria fica bonito no escuro e some aqui; estes s\u00e3o recoloridos pelo tema, e nada mudou de lugar.",
+      "file": "04_light.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          255,
+          255,
+          255
+        ],
+        "workflow": [
+          152,
+          157,
+          170
+        ],
+        "layers": [
+          248,
+          249,
+          252
+        ],
+        "canvas": [
+          63,
+          173,
+          119
+        ],
+        "inspector": [
+          48,
+          130,
+          211
+        ],
+        "topbar": [
+          255,
+          255,
+          255
+        ]
+      },
+      "changed_fraction": 0.5995,
+      "distinct_colours": 3134,
+      "blank": false,
+      "facts": {
+        "theme": "light",
+        "railWidth": 44,
+        "iconButtons": 25
+      },
+      "failures": []
+    }
+  ]
+}

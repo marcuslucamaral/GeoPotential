@@ -1,0 +1,254 @@
+{
+  "storyboard": "demo",
+  "title": "Do ponto ao campo \u2014 Utah FORGE",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "points",
+      "caption": "As 3 735 esta\u00e7\u00f5es gravim\u00e9tricas do Utah FORGE, desenhadas. Um CSV entra, \u00e9 conferido e \u00e9 desenhado \u2014 antes de qualquer interpola\u00e7\u00e3o existir.",
+      "file": "01_points.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          56,
+          167,
+          124
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 2338,
+      "blank": false,
+      "facts": {
+        "layers": 1,
+        "kind": "table",
+        "rows": 3735,
+        "unit": "mGal",
+        "colormap": "viridis",
+        "harmonisable": 0,
+        "language": "en"
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "basemap",
+      "caption": "O mapa de fundo por baixo do dado: desligado por padr\u00e3o, s\u00f3 exibi\u00e7\u00e3o, nunca insumo, e \u00e9 o \u00fanico momento em que esta aplica\u00e7\u00e3o toca a rede.",
+      "file": "02_basemap.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          56,
+          167,
+          124
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.4286,
+      "distinct_colours": 9651,
+      "blank": false,
+      "facts": {
+        "chosen": "osm",
+        "canvas_source": "osm",
+        "layers": 2,
+        "basemap_is_bottom": true,
+        "sources_offered": 5,
+        "active_is_data": true
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "colormap",
+      "caption": "A rampa trocada para magma. Repinta a vista e n\u00e3o reescreve valor nenhum \u2014 a faixa no Inspector \u00e9 a mesma.",
+      "file": "03_colormap.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          210,
+          87,
+          112
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0592,
+      "distinct_colours": 9664,
+      "blank": false,
+      "facts": {
+        "colormap": "magma",
+        "offered": 8,
+        "range_unchanged": true,
+        "min": -243.427,
+        "max": -169.811
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "measured",
+      "caption": "Qual interpolador serve, medido neste levantamento por valida\u00e7\u00e3o cruzada. O produto n\u00e3o tem preferido: ele mede os tr\u00eas e reporta o erro na unidade do dado.",
+      "file": "04_measured.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          21,
+          24,
+          31
+        ],
+        "layers": [
+          35,
+          39,
+          46
+        ],
+        "canvas": [
+          20,
+          21,
+          26
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.413,
+      "distinct_colours": 7666,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "pressed": true,
+        "methods": 3,
+        "recommended": "grid.tin_linear"
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "cubic",
+      "caption": "O campo Clough-Tocher no canvas: c\u00fabico por partes sobre a triangula\u00e7\u00e3o, liso na derivada primeira, e nulo fora do fecho convexo em vez de extrapolado.",
+      "file": "05_cubic.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          55,
+          166,
+          124
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.4709,
+      "distinct_colours": 9803,
+      "blank": false,
+      "facts": {
+        "pressed": true,
+        "operator": "grid.tin_cubic",
+        "grid": "369x297",
+        "pixel": 200.0,
+        "valid": 96.4,
+        "artifacts": 1,
+        "harmonisable": 1
+      },
+      "failures": []
+    }
+  ]
+}

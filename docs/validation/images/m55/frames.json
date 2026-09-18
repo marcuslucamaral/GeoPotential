@@ -1,0 +1,351 @@
+{
+  "storyboard": "m55",
+  "title": "M5.5 \u2014 Interface profissional",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "flow",
+      "caption": "Oito etapas, com o estado lido do projeto: a etapa 1 conclu\u00edda, a 2 dispon\u00edvel, o resto bloqueado com o motivo.",
+      "file": "01_flow.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          15,
+          17,
+          21
+        ],
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "toolbar": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          0,
+          0,
+          0
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 1645,
+      "blank": false,
+      "facts": {
+        "steps": 8,
+        "done": 1,
+        "blocked": 6,
+        "current": "data"
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "layers",
+      "caption": "Duas camadas na pilha, cada uma com o seu colormap. A ordem \u00e9 ordem de desenho e n\u00e3o entra em nenhum manifesto.",
+      "file": "02_layers.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          15,
+          17,
+          21
+        ],
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "toolbar": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          23,
+          5,
+          38
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.3181,
+      "distinct_colours": 2786,
+      "blank": false,
+      "facts": {
+        "layers": 2,
+        "active": "L2",
+        "colormap": "magma",
+        "drawn": 2
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "aoi_mode",
+      "caption": "O modo AOI: a faixa diz 'Desenhando AOI', os v\u00e9rtices t\u00eam marcadores, e desfazer, cancelar e finalizar est\u00e3o \u00e0 m\u00e3o.",
+      "file": "03_aoi_mode.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          15,
+          17,
+          21
+        ],
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "toolbar": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          23,
+          5,
+          38
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0214,
+      "distinct_colours": 2835,
+      "blank": false,
+      "facts": {
+        "mode": "aoi",
+        "vertices": 4,
+        "drawing": true,
+        "aoi_pixels": 1062
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "aoi_gone",
+      "caption": "Fora do modo AOI n\u00e3o sobra nada na tela. Era este o defeito: linhas amarelas que ficavam para sempre.",
+      "file": "04_aoi_gone.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          15,
+          17,
+          21
+        ],
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "toolbar": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          23,
+          5,
+          38
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0214,
+      "distinct_colours": 2786,
+      "blank": false,
+      "facts": {
+        "mode": "navigate",
+        "vertices": 0,
+        "drawing": false,
+        "aoi_pixels": 0
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "english",
+      "caption": "A mesma tela em ingl\u00eas. S\u00f3 o texto muda; nenhum painel se move.",
+      "file": "05_english.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          15,
+          17,
+          21
+        ],
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "toolbar": [
+          23,
+          26,
+          33
+        ],
+        "canvas": [
+          23,
+          5,
+          38
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0144,
+      "distinct_colours": 2756,
+      "blank": false,
+      "facts": {
+        "language": "en",
+        "sample": "WORKFLOW"
+      },
+      "failures": []
+    },
+    {
+      "index": 6,
+      "name": "import_preview",
+      "caption": "O assistente de importa\u00e7\u00e3o desenhando um shapefile: silhueta, fatos por tipo e histograma, antes de o arquivo entrar no projeto.",
+      "file": "06_import_preview.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "menubar": [
+          14,
+          16,
+          20
+        ],
+        "workflow": [
+          21,
+          24,
+          31
+        ],
+        "layers": [
+          35,
+          39,
+          46
+        ],
+        "toolbar": [
+          21,
+          24,
+          31
+        ],
+        "canvas": [
+          0,
+          0,
+          0
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "statusbar": [
+          28,
+          32,
+          40
+        ]
+      },
+      "changed_fraction": 0.3536,
+      "distinct_colours": 2770,
+      "blank": false,
+      "facts": {
+        "kind": "vector",
+        "features": 6,
+        "drawn": true,
+        "parts": 6,
+        "stroke_pixels": 3960
+      },
+      "failures": []
+    }
+  ]
+}

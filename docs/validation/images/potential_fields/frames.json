@@ -1,0 +1,256 @@
+{
+  "storyboard": "potential_fields",
+  "title": "M7 \u2014 bancada de campos potenciais",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "field",
+      "caption": "O grid do campo na visualiza\u00e7\u00e3o, numa grade m\u00e9trica \u2014 que \u00e9 o que um filtro espectral aceita.",
+      "file": "01_field.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          23,
+          26,
+          33
+        ],
+        "workflow": [
+          104,
+          110,
+          124
+        ],
+        "canvas": [
+          39,
+          130,
+          140
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "topbar": [
+          23,
+          26,
+          33
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 3101,
+      "blank": false,
+      "facts": {
+        "layers": 1,
+        "runs": 0
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "workbench",
+      "caption": "A bancada: sete operadores, os par\u00e2metros que o escolhido aceita, a borda como par\u00e2metro, e as conven\u00e7\u00f5es \u00e0 vista.",
+      "file": "02_workbench.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          21,
+          24,
+          31
+        ],
+        "workflow": [
+          97,
+          102,
+          115
+        ],
+        "canvas": [
+          30,
+          34,
+          43
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "topbar": [
+          21,
+          24,
+          31
+        ]
+      },
+      "changed_fraction": 0.3616,
+      "distinct_colours": 2782,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "operators": 7,
+        "fields": 1,
+        "operator": "potential_fields.tilt",
+        "ready": true,
+        "conventions_visible": true,
+        "conventions_len": 275,
+        "needs_height": false,
+        "needs_magnetic": false,
+        "unstable": false
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "tilt",
+      "caption": "O tilt rodado. Sai rotulado em radianos, o manifesto traz a conven\u00e7\u00e3o e a borda, e o original continua na pilha ao lado.",
+      "file": "03_tilt.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          23,
+          26,
+          33
+        ],
+        "workflow": [
+          104,
+          110,
+          124
+        ],
+        "canvas": [
+          87,
+          195,
+          101
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "topbar": [
+          23,
+          26,
+          33
+        ]
+      },
+      "changed_fraction": 0.405,
+      "distinct_colours": 4107,
+      "blank": false,
+      "facts": {
+        "pressed": true,
+        "operator": "potential_fields.tilt",
+        "unit": "rad",
+        "has_conventions": true,
+        "pad_mode": "reflect",
+        "artifacts": 1,
+        "layers_before": 1,
+        "layers_after": 2
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "not_potential",
+      "caption": "Declarar o dado como \"outro\" desabilita as cinco transforma\u00e7\u00f5es que dependem de Laplace, com a raz\u00e3o no r\u00f3tulo. O gradiente horizontal total continua: ele \u00e9 matem\u00e1tica de grade.",
+      "file": "04_not_potential.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          21,
+          24,
+          31
+        ],
+        "workflow": [
+          97,
+          102,
+          115
+        ],
+        "canvas": [
+          30,
+          34,
+          43
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "topbar": [
+          21,
+          24,
+          31
+        ]
+      },
+      "changed_fraction": 0.3622,
+      "distinct_colours": 4102,
+      "blank": false,
+      "facts": {
+        "kind": "other",
+        "tilt_reason": "s\u00f3 para campo potencial: usa a derivada vertical, que \u00e9 infe",
+        "tilt_blocked": true,
+        "warning_visible": true,
+        "thg_still_available": true
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "rtp_warning",
+      "caption": "RTP com inclina\u00e7\u00e3o de 5\u00b0: o alerta de instabilidade acende **antes** de executar, e diz o que fazer no lugar.",
+      "file": "05_rtp_warning.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "rail": [
+          21,
+          24,
+          31
+        ],
+        "workflow": [
+          97,
+          102,
+          115
+        ],
+        "canvas": [
+          23,
+          26,
+          33
+        ],
+        "inspector": [
+          65,
+          132,
+          205
+        ],
+        "topbar": [
+          21,
+          24,
+          31
+        ]
+      },
+      "changed_fraction": 0.0587,
+      "distinct_colours": 4320,
+      "blank": false,
+      "facts": {
+        "operator": "potential_fields.rtp",
+        "needs_magnetic": true,
+        "needs_height": false,
+        "unstable": true,
+        "warning_visible": true,
+        "warning_mentions_equator": true
+      },
+      "failures": []
+    }
+  ]
+}

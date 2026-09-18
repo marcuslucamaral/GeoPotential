@@ -1,0 +1,255 @@
+{
+  "storyboard": "flow",
+  "title": "E6 \u2014 o fluxo real, pela interface",
+  "size": [
+    1440,
+    880
+  ],
+  "frames": [
+    {
+      "index": 1,
+      "name": "empty",
+      "caption": "A aplica\u00e7\u00e3o rec\u00e9m-aberta, sem nenhum argumento de linha de comando: um projeto, e a etapa 2 esperando.",
+      "file": "01_empty.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          0,
+          0,
+          0
+        ],
+        "inspector": [
+          23,
+          26,
+          33
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0,
+      "distinct_colours": 1645,
+      "blank": false,
+      "facts": {
+        "datasets": 0,
+        "layers": 0,
+        "current": "data"
+      },
+      "failures": []
+    },
+    {
+      "index": 2,
+      "name": "imported",
+      "caption": "Dois rasters importados pelo bot\u00e3o Importar do pr\u00f3prio assistente, cada um com o seu veredito de QA/QC.",
+      "file": "02_imported.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          30,
+          34,
+          43
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          65,
+          24,
+          100
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.401,
+      "distinct_colours": 3113,
+      "blank": false,
+      "facts": {
+        "pressed": true,
+        "datasets": 2,
+        "layers": 2,
+        "current": "data"
+      },
+      "failures": []
+    },
+    {
+      "index": 3,
+      "name": "harmonized",
+      "caption": "Uma grade de an\u00e1lise, com CRS, pixel e pol\u00edtica de extens\u00e3o escolhidos no di\u00e1logo \u2014 nenhum deles assumido.",
+      "file": "03_harmonized.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          65,
+          24,
+          100
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.0187,
+      "distinct_colours": 3195,
+      "blank": false,
+      "facts": {
+        "opened": true,
+        "offered": 2,
+        "pressed": true,
+        "outcome": "Succeeded",
+        "crs": "EPSG:26912",
+        "pixel": 40.0,
+        "onGrid": 2
+      },
+      "failures": []
+    },
+    {
+      "index": 4,
+      "name": "membership",
+      "caption": "Cada camada harmonizada vira um crit\u00e9rio pelo bot\u00e3o Aplicar do editor, com a curva sobre o histograma.",
+      "file": "04_membership.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          48,
+          159,
+          130
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.2971,
+      "distinct_colours": 3349,
+      "blank": false,
+      "facts": {
+        "applied": 2,
+        "criteria": 2,
+        "unique_paths": 2,
+        "reapplied_function": "linear_decreasing",
+        "membership_layers": 2,
+        "membership_names": 2,
+        "named": "large_field.tif, large_field_b.tif"
+      },
+      "failures": []
+    },
+    {
+      "index": 5,
+      "name": "prospectivity",
+      "caption": "O mapa de prospectividade, ao fim de um fluxo que come\u00e7ou numa janela vazia.",
+      "file": "05_prospectivity.png",
+      "size": [
+        1440,
+        880
+      ],
+      "probes": {
+        "workflow": [
+          23,
+          26,
+          33
+        ],
+        "layers": [
+          38,
+          42,
+          49
+        ],
+        "canvas": [
+          59,
+          80,
+          137
+        ],
+        "inspector": [
+          70,
+          142,
+          221
+        ],
+        "statusbar": [
+          30,
+          34,
+          43
+        ]
+      },
+      "changed_fraction": 0.2743,
+      "distinct_colours": 3407,
+      "blank": false,
+      "facts": {
+        "screen": true,
+        "pressed": true,
+        "outcome": "Succeeded",
+        "method": "weighted_linear_combination",
+        "weighted": 2,
+        "runs": 5,
+        "artifacts": 1,
+        "layers_before": 6,
+        "layers_after": 7
+      },
+      "failures": []
+    }
+  ]
+}

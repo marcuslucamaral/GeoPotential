@@ -1,0 +1,27 @@
+module GeoPotential
+singleton Theme 1.0 Theme.qml
+ThemedIcon 1.0 ThemedIcon.qml
+IconButton 1.0 IconButton.qml
+ActivityBar 1.0 ActivityBar.qml
+WorkflowPanel 1.0 WorkflowPanel.qml
+AppMenuBar 1.0 AppMenuBar.qml
+LayerPanel 1.0 LayerPanel.qml
+AttributeTable 1.0 AttributeTable.qml
+MapToolBar 1.0 MapToolBar.qml
+Inspector 1.0 Inspector.qml
+JobsPanel 1.0 JobsPanel.qml
+StatusBar 1.0 StatusBar.qml
+TopBar 1.0 TopBar.qml
+ImportWizard 1.0 ImportWizard.qml
+CanvasOverlay 1.0 CanvasOverlay.qml
+ProjectHub 1.0 ProjectHub.qml
+Histogram 1.0 Histogram.qml
+MembershipEditor 1.0 MembershipEditor.qml
+DecisionModel 1.0 DecisionModel.qml
+PreviewMap 1.0 PreviewMap.qml
+HarmonizeDialog 1.0 HarmonizeDialog.qml
+PreferencesDialog 1.0 PreferencesDialog.qml
+GriddingDialog 1.0 GriddingDialog.qml
+ScenariosDialog 1.0 ScenariosDialog.qml
+PotentialFieldsDialog 1.0 PotentialFieldsDialog.qml
+IdentifyPanel 1.0 IdentifyPanel.qml

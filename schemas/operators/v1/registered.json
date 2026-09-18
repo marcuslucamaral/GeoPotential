@@ -1,0 +1,2625 @@
+[
+  {
+    "name": "io.describe_dataset",
+    "version": "1.0.0",
+    "summary": "Read format, CRS, unit, fields, NoData, extent and statistics without importing.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md section 9.2, MSP-03.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the operator declares for a file that carries none."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Physical unit of the values: mGal, g/cm3, m, degC, mW/m2, nT."
+      },
+      {
+        "name": "nodata",
+        "type": "float",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nodata sentinel to honour, for a file that declares none."
+      },
+      {
+        "name": "band",
+        "type": "int",
+        "unit": null,
+        "default": 1,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "1-based band of a raster."
+      },
+      {
+        "name": "x_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the X coordinate."
+      },
+      {
+        "name": "y_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the Y coordinate."
+      },
+      {
+        "name": "value_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the value."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer name, for a GeoPackage holding several."
+      },
+      {
+        "name": "separator",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column separator, when a table's is not detected."
+      }
+    ]
+  },
+  {
+    "name": "qc.validate_dataset",
+    "version": "1.0.0",
+    "summary": "Validate CRS, unit, NoData, coverage, overlap, resolution, duplicates, gaps and finiteness, with actionable messages.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-04, section 33.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the operator declares for a file that carries none."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Physical unit of the values: mGal, g/cm3, m, degC, mW/m2, nT."
+      },
+      {
+        "name": "nodata",
+        "type": "float",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nodata sentinel to honour, for a file that declares none."
+      },
+      {
+        "name": "band",
+        "type": "int",
+        "unit": null,
+        "default": 1,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "1-based band of a raster."
+      },
+      {
+        "name": "x_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the X coordinate."
+      },
+      {
+        "name": "y_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the Y coordinate."
+      },
+      {
+        "name": "value_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the value."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer name, for a GeoPackage holding several."
+      },
+      {
+        "name": "separator",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column separator, when a table's is not detected."
+      },
+      {
+        "name": "require_metric",
+        "type": "bool",
+        "unit": null,
+        "default": false,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "True when the intended operation measures in metres; a geographic CRS then blocks."
+      },
+      {
+        "name": "context",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layers already in the project, each {name, extent, pixel_size}, for the overlap and resolution checks."
+      }
+    ]
+  },
+  {
+    "name": "decision.membership",
+    "version": "1.0.0",
+    "summary": "Map a raw raster onto a dimensionless fuzzy membership in [0, 1].",
+    "reference": "Zadeh (1965), Information and Control 8(3), sec. 2.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "function",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "linear_increasing",
+          "linear_decreasing",
+          "sigmoidal",
+          "gaussian",
+          "small",
+          "large",
+          "circular",
+          "categorical"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "Which membership function to apply."
+      },
+      {
+        "name": "criterion_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name the criterion carries into the stack; weights bind to it."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Physical unit of the raw input, for provenance."
+      },
+      {
+        "name": "x_min",
+        "type": "float",
+        "unit": "input unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Low anchor, in the input unit. Taken from the data if absent."
+      },
+      {
+        "name": "x_max",
+        "type": "float",
+        "unit": "input unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "High anchor, in the input unit. Taken from the data if absent."
+      },
+      {
+        "name": "clamp_percentile_low",
+        "type": "float",
+        "unit": "percent",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 100.0,
+        "doc": "Take the low anchor from this percentile instead of the minimum."
+      },
+      {
+        "name": "clamp_percentile_high",
+        "type": "float",
+        "unit": "percent",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 100.0,
+        "doc": "Take the high anchor from this percentile instead of the maximum."
+      },
+      {
+        "name": "center",
+        "type": "float",
+        "unit": "input unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Inflection point, sigmoidal only. The median if absent."
+      },
+      {
+        "name": "slope",
+        "type": "float",
+        "unit": "1/input unit",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Steepness per input unit, sigmoidal only."
+      },
+      {
+        "name": "direction",
+        "type": "str",
+        "unit": null,
+        "default": "increasing",
+        "required": false,
+        "choices": [
+          "increasing",
+          "decreasing"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "Sigmoidal sense."
+      },
+      {
+        "name": "mean",
+        "type": "float",
+        "unit": "input unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Optimum, gaussian only. The sample mean if absent."
+      },
+      {
+        "name": "std",
+        "type": "float",
+        "unit": "input unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Spread, gaussian only. The sample std if absent."
+      },
+      {
+        "name": "midpoint",
+        "type": "float",
+        "unit": "input unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Value receiving membership 0.5; small/large only."
+      },
+      {
+        "name": "spread",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 5.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.1,
+        "maximum": null,
+        "doc": "Shape exponent; small/large only."
+      },
+      {
+        "name": "preferred",
+        "type": "float",
+        "unit": "degree",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Azimuth receiving membership 1; circular only."
+      },
+      {
+        "name": "angular_spread",
+        "type": "float",
+        "unit": "degree",
+        "default": 90.0,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Angular distance receiving membership 0.5; circular only."
+      },
+      {
+        "name": "mapping",
+        "type": "dict",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "{class code: membership in [0, 1]}; categorical only. Every code present in the data must be listed."
+      },
+      {
+        "name": "band",
+        "type": "int",
+        "unit": null,
+        "default": 1,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "1-based band of the input raster."
+      }
+    ]
+  },
+  {
+    "name": "grid.difference",
+    "version": "1.0.0",
+    "summary": "Subtract one raster from another on a shared grid: A - B.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md M4, MSP-05 difference map.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name the difference carries; also the output filename."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unit of both inputs; the difference carries the same one."
+      },
+      {
+        "name": "band",
+        "type": "int",
+        "unit": null,
+        "default": 1,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "1-based band of both inputs."
+      }
+    ]
+  },
+  {
+    "name": "grid.harmonize",
+    "version": "1.0.0",
+    "summary": "Reproject, resample and clip every layer onto one target grid.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the analysis grid. There is no default."
+      },
+      {
+        "name": "pixel_size",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Square pixel of the analysis grid, in the target CRS unit."
+      },
+      {
+        "name": "layers",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{path, name, unit, resampling, categorical}], in the order the criteria will carry."
+      },
+      {
+        "name": "extent_policy",
+        "type": "str",
+        "unit": null,
+        "default": "intersection",
+        "required": false,
+        "choices": [
+          "intersection",
+          "union"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "Intersection keeps only where every layer has data; union keeps where any does. They are different maps."
+      }
+    ]
+  },
+  {
+    "name": "grid.compare_policies",
+    "version": "1.0.0",
+    "summary": "Report the grid and the share of cells that would carry a score under each extent policy, without harmonizing.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06, ADR-MSP-004.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the analysis grid. There is no default."
+      },
+      {
+        "name": "pixel_size",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Square pixel of the analysis grid, in the target CRS unit."
+      },
+      {
+        "name": "layers",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{path, name, unit, resampling, categorical}], the same shape `grid.harmonize` takes."
+      },
+      {
+        "name": "estimate_cells",
+        "type": "int",
+        "unit": "cells",
+        "default": 262144,
+        "required": false,
+        "choices": null,
+        "minimum": 256,
+        "maximum": null,
+        "doc": "Budget for the decimated grid the estimate runs on."
+      }
+    ]
+  },
+  {
+    "name": "decision.ahp_weights",
+    "version": "1.0.0",
+    "summary": "Weights from a reciprocal comparison matrix, with the consistency ratio as a refusal.",
+    "reference": "Saaty (1980), The Analytic Hierarchy Process, ch. 3.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "matrix",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Square, strictly positive, reciprocal comparison matrix."
+      },
+      {
+        "name": "names",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Criterion names in the stack's order; row i binds to names[i]."
+      },
+      {
+        "name": "cr_threshold",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.1,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Consistency ratio above which the matrix is refused."
+      },
+      {
+        "name": "override_reason",
+        "type": "str",
+        "unit": null,
+        "default": "",
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Written justification for proceeding above the threshold. Recorded in the manifest."
+      }
+    ]
+  },
+  {
+    "name": "decision.aggregate",
+    "version": "1.0.0",
+    "summary": "Apply memberships and aggregate by Fuzzy Gamma, Product, Sum or weighted linear combination.",
+    "reference": "Zimmermann and Zysno (1980), Fuzzy Sets and Systems 4(1), sec. 3; Saaty (1980) for the weights.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "criteria",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{path, name, unit, function, ...membership params}], all already on one grid."
+      },
+      {
+        "name": "method",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "fuzzy_gamma",
+          "fuzzy_product",
+          "fuzzy_sum",
+          "weighted_linear_combination"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "Aggregation operator."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name of the suitability map, and its filename."
+      },
+      {
+        "name": "gamma",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.7,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Compensation for fuzzy_gamma. 0 is the product, 1 the sum. Recorded: 0.7 and 0.9 are different maps."
+      },
+      {
+        "name": "weights",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{name, weight}] for weighted_linear_combination; must sum to 1."
+      },
+      {
+        "name": "mask_path",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Raster mask \u2014 an AOI or a common validity mask. Outside it the result is null, not zero."
+      },
+      {
+        "name": "correlation_threshold",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.85,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "|r| above which a pair of criteria is reported as possible double counting."
+      },
+      {
+        "name": "groups",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{name, group}]; criteria sharing a group are not reported as double counting."
+      }
+    ]
+  },
+  {
+    "name": "grid.idw",
+    "version": "1.0.0",
+    "summary": "Interpolate scattered point samples onto a grid (Shepard 1968).",
+    "reference": "Shepard, D. (1968), Proc. 23rd ACM National Conference; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the analysis grid. There is no default."
+      },
+      {
+        "name": "pixel_size",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Square pixel of the analysis grid, in the target CRS unit."
+      },
+      {
+        "name": "bounds",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "(left, bottom, right, top) of the area to grid. Absent, the data's own extent is used; present, only that area is gridded \u2014 which is also the cheapest way to make a grid fit."
+      },
+      {
+        "name": "bounds_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS `bounds` is written in, when it is not the target CRS."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name the result carries; also the output filename."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Physical unit of the samples; the field carries it."
+      },
+      {
+        "name": "source_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the coordinates are in. Required for a table."
+      },
+      {
+        "name": "x_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the X coordinate."
+      },
+      {
+        "name": "y_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the Y coordinate."
+      },
+      {
+        "name": "value_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the measurement."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer of a multi-layer vector file."
+      },
+      {
+        "name": "radius",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Search radius. Beyond it no sample is used, and a cell with too few samples stays null rather than being filled from far away."
+      },
+      {
+        "name": "power",
+        "type": "float",
+        "unit": null,
+        "default": 2.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": null,
+        "doc": "Shepard's p. Higher weights the nearest sample more; 2 is the documented default."
+      },
+      {
+        "name": "min_points",
+        "type": "int",
+        "unit": null,
+        "default": 1,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "Fewer neighbours than this leaves the cell null."
+      },
+      {
+        "name": "max_points",
+        "type": "int",
+        "unit": null,
+        "default": 16,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "Neighbours used, nearest first."
+      }
+    ]
+  },
+  {
+    "name": "grid.tin_linear",
+    "version": "1.0.0",
+    "summary": "Interpolate point samples over a Delaunay triangulation, linear inside each triangle (QGIS: TIN, Linear).",
+    "reference": "Delaunay, B. (1934), Bull. Acad. Sci. URSS; scipy.interpolate.LinearNDInterpolator; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the analysis grid. There is no default."
+      },
+      {
+        "name": "pixel_size",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Square pixel of the analysis grid, in the target CRS unit."
+      },
+      {
+        "name": "bounds",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "(left, bottom, right, top) of the area to grid. Absent, the data's own extent is used; present, only that area is gridded \u2014 which is also the cheapest way to make a grid fit."
+      },
+      {
+        "name": "bounds_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS `bounds` is written in, when it is not the target CRS."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name the result carries; also the output filename."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Physical unit of the samples; the field carries it."
+      },
+      {
+        "name": "source_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the coordinates are in. Required for a table."
+      },
+      {
+        "name": "x_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the X coordinate."
+      },
+      {
+        "name": "y_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the Y coordinate."
+      },
+      {
+        "name": "value_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the measurement."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer of a multi-layer vector file."
+      },
+      {
+        "name": "max_distance",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Cells farther than this from every sample stay null. Absent, the convex hull of the samples is the only limit, which is what QGIS does; present, it keeps one wide triangle from filling a gap nobody surveyed."
+      }
+    ]
+  },
+  {
+    "name": "grid.tin_cubic",
+    "version": "1.0.0",
+    "summary": "Interpolate point samples over a Delaunay triangulation, Clough-Tocher cubic (QGIS: TIN, Clough-Toucher).",
+    "reference": "Clough, R. & Tocher, J. (1965), Proc. Conf. Matrix Methods in Structural Mechanics; Alfeld, P. (1984), CAGD 1(2); scipy.interpolate.CloughTocher2DInterpolator; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the analysis grid. There is no default."
+      },
+      {
+        "name": "pixel_size",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Square pixel of the analysis grid, in the target CRS unit."
+      },
+      {
+        "name": "bounds",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "(left, bottom, right, top) of the area to grid. Absent, the data's own extent is used; present, only that area is gridded \u2014 which is also the cheapest way to make a grid fit."
+      },
+      {
+        "name": "bounds_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS `bounds` is written in, when it is not the target CRS."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name the result carries; also the output filename."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Physical unit of the samples; the field carries it."
+      },
+      {
+        "name": "source_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the coordinates are in. Required for a table."
+      },
+      {
+        "name": "x_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the X coordinate."
+      },
+      {
+        "name": "y_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the Y coordinate."
+      },
+      {
+        "name": "value_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the measurement."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer of a multi-layer vector file."
+      },
+      {
+        "name": "max_distance",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Cells farther than this from every sample stay null. Absent, the convex hull of the samples is the only limit, which is what QGIS does; present, it keeps one wide triangle from filling a gap nobody surveyed."
+      }
+    ]
+  },
+  {
+    "name": "grid.euclidean_distance",
+    "version": "1.0.0",
+    "summary": "Distance from every cell to the nearest input feature.",
+    "reference": "Felzenszwalb & Huttenlocher (2012), exact distance transform; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the analysis grid. There is no default."
+      },
+      {
+        "name": "pixel_size",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Square pixel of the analysis grid, in the target CRS unit."
+      },
+      {
+        "name": "bounds",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "(left, bottom, right, top) of the area to grid. Absent, the data's own extent is used; present, only that area is gridded \u2014 which is also the cheapest way to make a grid fit."
+      },
+      {
+        "name": "bounds_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS `bounds` is written in, when it is not the target CRS."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name the result carries; also the output filename."
+      },
+      {
+        "name": "source_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the features are in. Required for a table."
+      },
+      {
+        "name": "x_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the X coordinate, for a table."
+      },
+      {
+        "name": "y_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the Y coordinate, for a table."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer of a multi-layer vector file."
+      },
+      {
+        "name": "max_distance",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Beyond this the result is null rather than a number nobody asked for. Recorded in the manifest."
+      }
+    ]
+  },
+  {
+    "name": "grid.rasterize",
+    "version": "1.0.0",
+    "summary": "Burn a vector attribute into the cells its feature covers.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06, rasteriza\u00e7\u00e3o.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the analysis grid. There is no default."
+      },
+      {
+        "name": "pixel_size",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Square pixel of the analysis grid, in the target CRS unit."
+      },
+      {
+        "name": "bounds",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "(left, bottom, right, top) of the area to grid. Absent, the data's own extent is used; present, only that area is gridded \u2014 which is also the cheapest way to make a grid fit."
+      },
+      {
+        "name": "bounds_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS `bounds` is written in, when it is not the target CRS."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Name the result carries; also the output filename."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Physical unit of the burned attribute."
+      },
+      {
+        "name": "value_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Attribute whose value each feature burns."
+      },
+      {
+        "name": "source_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS of the features, when the file declares none."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer of a multi-layer vector file."
+      },
+      {
+        "name": "all_touched",
+        "type": "bool",
+        "unit": null,
+        "default": false,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "True gives a cell to any feature touching it; False, only to one covering its centre. They differ along every boundary, and the choice is recorded."
+      }
+    ]
+  },
+  {
+    "name": "grid.cross_validate",
+    "version": "1.0.0",
+    "summary": "Hold samples out and measure each interpolation method's error, in the samples' own unit.",
+    "reference": "Stone, M. (1974), J. R. Stat. Soc. B 36(2), 111-147; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-06.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "target_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the comparison is made in. There is no default: a distance decides every method, so it must be metric."
+      },
+      {
+        "name": "source_crs",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "CRS the coordinates are in. Required for a table."
+      },
+      {
+        "name": "x_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the X coordinate."
+      },
+      {
+        "name": "y_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the Y coordinate."
+      },
+      {
+        "name": "value_field",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Column holding the measurement."
+      },
+      {
+        "name": "layer",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Layer of a multi-layer vector file."
+      },
+      {
+        "name": "radius",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "The search radius grid.idw would run with, so the comparison scores the run about to be made."
+      },
+      {
+        "name": "power",
+        "type": "float",
+        "unit": null,
+        "default": 2.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": null,
+        "doc": "Shepard's p, as grid.idw would run with it."
+      },
+      {
+        "name": "min_points",
+        "type": "int",
+        "unit": null,
+        "default": 1,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "As grid.idw would run with it."
+      },
+      {
+        "name": "max_points",
+        "type": "int",
+        "unit": null,
+        "default": 16,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "As grid.idw would run with it."
+      },
+      {
+        "name": "max_distance",
+        "type": "float",
+        "unit": "CRS unit",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "As a triangulated method would run with it."
+      },
+      {
+        "name": "folds",
+        "type": "int",
+        "unit": null,
+        "default": 5,
+        "required": false,
+        "choices": null,
+        "minimum": 2,
+        "maximum": null,
+        "doc": "k in k-fold. 5 holds out a fifth at a time."
+      }
+    ]
+  },
+  {
+    "name": "scenarios.leave_one_out",
+    "version": "1.0.0",
+    "summary": "Remove each criterion in turn, re-aggregate, and report how far the map and its ranking moved.",
+    "reference": "Saltelli et al. (2008), Global Sensitivity Analysis: The Primer, ch. 1; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-11, section 17.3.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "criteria",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{path, name, unit, function, ...membership params}], the same list the run was computed from, all on one grid."
+      },
+      {
+        "name": "method",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The aggregation the run used. A scenario measured against a different operator measures nothing."
+      },
+      {
+        "name": "gamma",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.7,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "The run's gamma, for fuzzy_gamma."
+      },
+      {
+        "name": "weights",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{name, weight}], the run's weights."
+      },
+      {
+        "name": "top_fraction",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.1,
+        "required": false,
+        "choices": null,
+        "minimum": 0.001,
+        "maximum": 1.0,
+        "doc": "The head of the distribution the agreement is measured over. 0.1 is the top decile; \"the best 10 %\" is a choice."
+      }
+    ]
+  },
+  {
+    "name": "scenarios.sensitivity",
+    "version": "1.0.0",
+    "summary": "Vary gamma, one weight, or a membership anchor, and report the change in the map and in its ranking.",
+    "reference": "Saltelli et al. (2008), ch. 1; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-11, section 17.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "criteria",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{path, name, unit, function, ...membership params}], the same list the run was computed from, all on one grid."
+      },
+      {
+        "name": "method",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The aggregation the run used. A scenario measured against a different operator measures nothing."
+      },
+      {
+        "name": "gamma",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.7,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "The run's gamma, for fuzzy_gamma."
+      },
+      {
+        "name": "weights",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{name, weight}], the run's weights."
+      },
+      {
+        "name": "top_fraction",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.1,
+        "required": false,
+        "choices": null,
+        "minimum": 0.001,
+        "maximum": 1.0,
+        "doc": "The head of the distribution the agreement is measured over. 0.1 is the top decile; \"the best 10 %\" is a choice."
+      },
+      {
+        "name": "parameter",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gamma",
+          "weight"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "What to vary. `gamma` is the compensation; `weight` moves one criterion's weight and renormalises the rest."
+      },
+      {
+        "name": "values",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The values to try. A list and not a range: an irregular grid (0, 0.5, 0.7, 0.9, 1) is usually what is wanted."
+      },
+      {
+        "name": "criterion",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Which criterion's weight to sweep. Required for `weight`, meaningless for `gamma`."
+      }
+    ]
+  },
+  {
+    "name": "scenarios.explain",
+    "version": "1.0.0",
+    "summary": "Decompose one cell's score into what each criterion contributed, with the decomposition named.",
+    "reference": "Zimmermann and Zysno (1980) for the operators decomposed; IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-12, section 17.1.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "criteria",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{path, name, unit, function, ...membership params}], the same list the run was computed from, all on one grid."
+      },
+      {
+        "name": "method",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The aggregation the run used. A scenario measured against a different operator measures nothing."
+      },
+      {
+        "name": "gamma",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.7,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "The run's gamma, for fuzzy_gamma."
+      },
+      {
+        "name": "weights",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{name, weight}], the run's weights."
+      },
+      {
+        "name": "top_fraction",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.1,
+        "required": false,
+        "choices": null,
+        "minimum": 0.001,
+        "maximum": 1.0,
+        "doc": "The head of the distribution the agreement is measured over. 0.1 is the top decile; \"the best 10 %\" is a choice."
+      },
+      {
+        "name": "row",
+        "type": "int",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 0,
+        "maximum": null,
+        "doc": "Row of the cell to explain."
+      },
+      {
+        "name": "column",
+        "type": "int",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 0,
+        "maximum": null,
+        "doc": "Column of the cell to explain."
+      }
+    ]
+  },
+  {
+    "name": "scenarios.rank_targets",
+    "version": "1.0.0",
+    "summary": "Rank the highest-scoring places, separated so one anomaly is one target, each with what drove it.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md MSP-12, section 17.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "criteria",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{path, name, unit, function, ...membership params}], the same list the run was computed from, all on one grid."
+      },
+      {
+        "name": "method",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The aggregation the run used. A scenario measured against a different operator measures nothing."
+      },
+      {
+        "name": "gamma",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.7,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "The run's gamma, for fuzzy_gamma."
+      },
+      {
+        "name": "weights",
+        "type": "list",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "[{name, weight}], the run's weights."
+      },
+      {
+        "name": "top_fraction",
+        "type": "float",
+        "unit": "dimensionless",
+        "default": 0.1,
+        "required": false,
+        "choices": null,
+        "minimum": 0.001,
+        "maximum": 1.0,
+        "doc": "The head of the distribution the agreement is measured over. 0.1 is the top decile; \"the best 10 %\" is a choice."
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "unit": null,
+        "default": 10,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "How many targets to return."
+      },
+      {
+        "name": "min_separation",
+        "type": "int",
+        "unit": "cells",
+        "default": 5,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": null,
+        "doc": "Two targets closer than this are one anomaly seen twice. Ten pixels from one hilltop are not ten targets."
+      },
+      {
+        "name": "explain_each",
+        "type": "bool",
+        "unit": null,
+        "default": true,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Decompose every target's score into its criteria."
+      }
+    ]
+  },
+  {
+    "name": "reporting.manifest",
+    "version": "1.0.0",
+    "summary": "Write the run's manifest to a JSON file that reproduces it.",
+    "reference": "IMPLEMENTACAO_GEOPOTENTIAL_MSP.md section 17.9-17.11.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "manifest",
+        "type": "dict",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The run's manifest, as the store holds it."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Filename the manifest is written under."
+      },
+      {
+        "name": "run_id",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The run this manifest belongs to (section 17.9)."
+      },
+      {
+        "name": "app_version",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "The application version that produced it (17.10)."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.derivative",
+    "version": "1.0.0",
+    "summary": "Derivada de primeira ou segunda ordem em x, y ou z (z para baixo).",
+    "reference": "Blakely (1995), Potential Theory in Gravity and Magnetic Applications, section 12; MSP-14/15.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Quanto a grade cresce de cada lado antes da FFT. A diferen\u00e7a entre 10 % e 50 % \u00e9 vis\u00edvel no resultado, e o valor vai para o manifesto."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Quanto da regi\u00e3o refletida recebe o cosseno. O taper decai para o n\u00edvel da **borda** do dado, n\u00e3o para a m\u00e9dia."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nome do resultado, e do arquivo."
+      },
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9: `gravity`, `magnetic` ou `other`. As transforma\u00e7\u00f5es que dependem da derivada vertical s\u00f3 s\u00e3o definidas para um campo potencial; a redu\u00e7\u00e3o ao polo, s\u00f3 para magn\u00e9tico."
+      },
+      {
+        "name": "axis",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "x",
+          "y",
+          "z"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "Eixo. z \u00e9 positivo **para baixo**: a derivada vertical cresce ao aproximar-se da fonte."
+      },
+      {
+        "name": "order",
+        "type": "int",
+        "unit": null,
+        "default": 1,
+        "required": false,
+        "choices": null,
+        "minimum": 1,
+        "maximum": 2,
+        "doc": "1 ou 2. Ordem 3 multiplica o espectro por |k|\u00b3 e o que sai \u00e9 ru\u00eddo com a forma do dado."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unidade do campo de entrada, para rotular a sa\u00edda."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.total_horizontal_gradient",
+    "version": "1.0.0",
+    "summary": "sqrt(dx\u00b2 + dy\u00b2): real\u00e7a bordas laterais. Real\u00e7a, n\u00e3o as encontra.",
+    "reference": "Blakely (1995) section 12; MSP-14/15.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Quanto a grade cresce de cada lado antes da FFT. A diferen\u00e7a entre 10 % e 50 % \u00e9 vis\u00edvel no resultado, e o valor vai para o manifesto."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Quanto da regi\u00e3o refletida recebe o cosseno. O taper decai para o n\u00edvel da **borda** do dado, n\u00e3o para a m\u00e9dia."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nome do resultado, e do arquivo."
+      },
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9: `gravity`, `magnetic` ou `other`. As transforma\u00e7\u00f5es que dependem da derivada vertical s\u00f3 s\u00e3o definidas para um campo potencial; a redu\u00e7\u00e3o ao polo, s\u00f3 para magn\u00e9tico."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unidade do campo de entrada, para rotular a sa\u00edda."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.analytic_signal",
+    "version": "1.0.0",
+    "summary": "sqrt(dx\u00b2 + dy\u00b2 + dz\u00b2). Independente da dire\u00e7\u00e3o de magnetiza\u00e7\u00e3o em 2D; aproximadamente em 3D.",
+    "reference": "Nabighian, M. N. (1972), Geophysics 37(3), 507-517; MSP-15.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Quanto a grade cresce de cada lado antes da FFT. A diferen\u00e7a entre 10 % e 50 % \u00e9 vis\u00edvel no resultado, e o valor vai para o manifesto."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Quanto da regi\u00e3o refletida recebe o cosseno. O taper decai para o n\u00edvel da **borda** do dado, n\u00e3o para a m\u00e9dia."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nome do resultado, e do arquivo."
+      },
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9: `gravity`, `magnetic` ou `other`. As transforma\u00e7\u00f5es que dependem da derivada vertical s\u00f3 s\u00e3o definidas para um campo potencial; a redu\u00e7\u00e3o ao polo, s\u00f3 para magn\u00e9tico."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unidade do campo de entrada, para rotular a sa\u00edda."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.tilt",
+    "version": "1.0.0",
+    "summary": "atan2(dz, THG), em radianos, limitado a [-pi/2, pi/2].",
+    "reference": "Miller, H. G. & Singh, V. (1994), J. Applied Geophysics 32(2-3), 213-217; MSP-14/15.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Quanto a grade cresce de cada lado antes da FFT. A diferen\u00e7a entre 10 % e 50 % \u00e9 vis\u00edvel no resultado, e o valor vai para o manifesto."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Quanto da regi\u00e3o refletida recebe o cosseno. O taper decai para o n\u00edvel da **borda** do dado, n\u00e3o para a m\u00e9dia."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nome do resultado, e do arquivo."
+      },
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9: `gravity`, `magnetic` ou `other`. As transforma\u00e7\u00f5es que dependem da derivada vertical s\u00f3 s\u00e3o definidas para um campo potencial; a redu\u00e7\u00e3o ao polo, s\u00f3 para magn\u00e9tico."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unidade do campo de entrada, para rotular a sa\u00edda."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.upward_continuation",
+    "version": "1.0.0",
+    "summary": "Continua o campo para cima por uma altura declarada.",
+    "reference": "Blakely (1995) section 12; MSP-14/15.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Quanto a grade cresce de cada lado antes da FFT. A diferen\u00e7a entre 10 % e 50 % \u00e9 vis\u00edvel no resultado, e o valor vai para o manifesto."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Quanto da regi\u00e3o refletida recebe o cosseno. O taper decai para o n\u00edvel da **borda** do dado, n\u00e3o para a m\u00e9dia."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nome do resultado, e do arquivo."
+      },
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9: `gravity`, `magnetic` ou `other`. As transforma\u00e7\u00f5es que dependem da derivada vertical s\u00f3 s\u00e3o definidas para um campo potencial; a redu\u00e7\u00e3o ao polo, s\u00f3 para magn\u00e9tico."
+      },
+      {
+        "name": "height",
+        "type": "float",
+        "unit": "unidade do CRS",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "Altura, positiva para cima. Continuar para baixo amplifica o ru\u00eddo exponencialmente com |k| e \u00e9 recusado."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unidade do campo; a continua\u00e7\u00e3o n\u00e3o a muda."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.regional_residual",
+    "version": "1.0.0",
+    "summary": "Regional por continua\u00e7\u00e3o para cima; residual = campo \u2212 regional. A altura \u00e9 uma escolha, e vai no manifesto.",
+    "reference": "Blakely (1995) section 12; MSP-14.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Quanto a grade cresce de cada lado antes da FFT. A diferen\u00e7a entre 10 % e 50 % \u00e9 vis\u00edvel no resultado, e o valor vai para o manifesto."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Quanto da regi\u00e3o refletida recebe o cosseno. O taper decai para o n\u00edvel da **borda** do dado, n\u00e3o para a m\u00e9dia."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nome do resultado, e do arquivo."
+      },
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9: `gravity`, `magnetic` ou `other`. As transforma\u00e7\u00f5es que dependem da derivada vertical s\u00f3 s\u00e3o definidas para um campo potencial; a redu\u00e7\u00e3o ao polo, s\u00f3 para magn\u00e9tico."
+      },
+      {
+        "name": "height",
+        "type": "float",
+        "unit": "unidade do CRS",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": 1e-09,
+        "maximum": null,
+        "doc": "A altura que decide o que \u00e9 regional. Outra altura \u00e9 outra separa\u00e7\u00e3o, igualmente bem-comportada."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unidade do campo; a separa\u00e7\u00e3o n\u00e3o a muda."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.rtp",
+    "version": "1.0.0",
+    "summary": "Baranov (1957). Inst\u00e1vel em baixa inclina\u00e7\u00e3o, e o resultado diz isso.",
+    "reference": "Baranov, V. (1957), Geophysics 22(2), 359-382; MSP-15.",
+    "read_only": false,
+    "parameters": [
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Quanto a grade cresce de cada lado antes da FFT. A diferen\u00e7a entre 10 % e 50 % \u00e9 vis\u00edvel no resultado, e o valor vai para o manifesto."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Quanto da regi\u00e3o refletida recebe o cosseno. O taper decai para o n\u00edvel da **borda** do dado, n\u00e3o para a m\u00e9dia."
+      },
+      {
+        "name": "result_name",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Nome do resultado, e do arquivo."
+      },
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": true,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9: `gravity`, `magnetic` ou `other`. As transforma\u00e7\u00f5es que dependem da derivada vertical s\u00f3 s\u00e3o definidas para um campo potencial; a redu\u00e7\u00e3o ao polo, s\u00f3 para magn\u00e9tico."
+      },
+      {
+        "name": "inclination",
+        "type": "float",
+        "unit": "graus",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": -90.0,
+        "maximum": 90.0,
+        "doc": "Inclina\u00e7\u00e3o do campo geomagn\u00e9tico no levantamento."
+      },
+      {
+        "name": "declination",
+        "type": "float",
+        "unit": "graus",
+        "default": null,
+        "required": true,
+        "choices": null,
+        "minimum": -180.0,
+        "maximum": 180.0,
+        "doc": "Declina\u00e7\u00e3o do campo geomagn\u00e9tico no levantamento."
+      },
+      {
+        "name": "magnetization_inclination",
+        "type": "float",
+        "unit": "graus",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": -90.0,
+        "maximum": 90.0,
+        "doc": "Da magnetiza\u00e7\u00e3o, quando h\u00e1 reman\u00eancia. Ausente, assume-se induzida \u2014 e a suposi\u00e7\u00e3o \u00e9 registrada."
+      },
+      {
+        "name": "magnetization_declination",
+        "type": "float",
+        "unit": "graus",
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": -180.0,
+        "maximum": 180.0,
+        "doc": "Da magnetiza\u00e7\u00e3o, quando h\u00e1 reman\u00eancia."
+      },
+      {
+        "name": "unit",
+        "type": "str",
+        "unit": null,
+        "default": null,
+        "required": false,
+        "choices": null,
+        "minimum": null,
+        "maximum": null,
+        "doc": "Unidade do campo; a RTP n\u00e3o a muda."
+      }
+    ]
+  },
+  {
+    "name": "potential_fields.radial_spectrum",
+    "version": "1.0.0",
+    "summary": "Espectro de pot\u00eancia radial. \u00c9 diagn\u00f3stico: n\u00e3o devolve profundidade, e escolher o trecho reto \u00e9 leitura humana.",
+    "reference": "Spector, A. & Grant, F. S. (1970), Geophysics 35(2), 293-302; MSP-14, section 23.",
+    "read_only": true,
+    "parameters": [
+      {
+        "name": "field_kind",
+        "type": "str",
+        "unit": null,
+        "default": "other",
+        "required": false,
+        "choices": [
+          "gravity",
+          "magnetic",
+          "other"
+        ],
+        "minimum": null,
+        "maximum": null,
+        "doc": "O que este dado \u00e9. Aqui ele n\u00e3o restringe nada: o espectro \u00e9 o espectro de qualquer raster. Vai para o manifesto porque quem ler a curva depois precisa saber de que campo ela \u00e9."
+      },
+      {
+        "name": "pad_fraction",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o do lado",
+        "default": 0.25,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "doc": "Como nos demais filtros."
+      },
+      {
+        "name": "taper",
+        "type": "float",
+        "unit": "fra\u00e7\u00e3o da regi\u00e3o refletida",
+        "default": 1.0,
+        "required": false,
+        "choices": null,
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "doc": "Como nos demais filtros."
+      },
+      {
+        "name": "bins",
+        "type": "int",
+        "unit": null,
+        "default": 40,
+        "required": false,
+        "choices": null,
+        "minimum": 4,
+        "maximum": null,
+        "doc": "Quantas bandas de n\u00famero de onda."
+      }
+    ]
+  }
+]
