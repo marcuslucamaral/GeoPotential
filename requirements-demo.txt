@@ -1,0 +1,8 @@
+# Optional — only for tools/make_demo_video.py and tools/record_demo.py.
+#     pip install -r requirements-demo.txt
+#
+# Ships a static ffmpeg inside the environment, so nothing is installed on
+# the machine itself. tools/record_demo.py additionally needs Xvfb, which is
+# a system package: sudo apt install xvfb
+imageio-ffmpeg>=0.5
+pyautogui>=0.9

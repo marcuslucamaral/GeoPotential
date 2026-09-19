@@ -16,6 +16,6 @@ pyproj>=3.7
 shapely>=2.0
 affine>=2.4
 
-# Only for tools/make_demo_video.py. Ships a static ffmpeg inside the
-# environment, so nothing is installed on the machine.
-imageio-ffmpeg>=0.5 ; extra == "demo"
+# The demo recorders need one more package. It is not a runtime dependency
+# and lives in `requirements-demo.txt`, because an `extra` marker in a plain
+# requirements file is not something pip can evaluate.

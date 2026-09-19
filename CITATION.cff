@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+title: >-
+  GeoPotential — spatial multicriteria decision analysis for
+  geoscientific data
+message: >-
+  If you use this software in work you publish, please cite the
+  paper that describes the method. Cite the software itself as
+  well when the implementation, and not only the method, is what
+  your result depends on.
+type: software
+authors:
+  - family-names: do Amaral
+    given-names: M. L. A.
+    alias: marcuslucamaral
+repository-code: https://github.com/marcuslucamaral/GeoPotential
+abstract: >-
+  A local-first desktop application for spatial multicriteria
+  decision analysis. It loads vector, raster and tabular layers,
+  brings them onto one analysis grid, converts each into a
+  dimensionless suitability membership, and aggregates them into
+  a prospectivity map by the Gamma fuzzy operator or by
+  AHP-weighted linear combination. Every completed run writes a
+  manifest that reproduces it: input checksums, CRS, grid,
+  per-layer method and parameters, aggregation parameters and
+  package versions.
+keywords:
+  - multicriteria decision analysis
+  - MCDA
+  - fuzzy logic
+  - analytic hierarchy process
+  - geographic information system
+  - potential field
+  - geothermal
+  - mineral prospectivity
+  - reproducibility
+license: Apache-2.0
+version: 0.8.12
+preferred-citation:
+  type: article
+  title: >-
+    Integration of geophysical data and multicriteria decision
+    analysis for geothermal assessment at Utah FORGE
+  authors:
+    - family-names: do Amaral
+      given-names: M. L. A.
+    - family-names: Caldeira
+      given-names: M. C. O.
+    - family-names: de Figueiredo
+      given-names: J. J. S.
+    - family-names: Da Silveira
+      given-names: J. R. B. S.
+  journal: Geothermics
+  volume: 136
+  start: 103590
+  year: 2026
+  doi: 10.1016/j.geothermics.2025.103590

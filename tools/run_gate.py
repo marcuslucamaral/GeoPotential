@@ -158,7 +158,19 @@ def run_architecture() -> tuple[str, str]:
 
 
 def run_fixtures() -> tuple[str, str]:
-    """The generated datasets the gates need. Derived, never shipped."""
+    """The generated datasets the gates need. Derived, never shipped.
+
+    Generate first, then check. Checking alone passes on the machine that has
+    run the generators once before and blocks six checks on every machine that
+    has not — which is what a fresh clone is. Each generator is a no-op when
+    its output is already there, so this costs nothing on the second run.
+    """
+    for script in ("make_synthetic_data.py", "make_broken_fixtures.py",
+                   "make_canvas_fixtures.py"):
+        code, output = run([str(ROOT / "tools" / script)])
+        if code != 0:
+            head = output.splitlines()[0] if output else "no output"
+            return "BLOCKED", f"{script}: {head}"
     lines = []
     for script in ("make_broken_fixtures.py", "make_canvas_fixtures.py"):
         code, output = run([str(ROOT / "tools" / script), "--check"])

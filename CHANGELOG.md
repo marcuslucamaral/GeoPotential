@@ -1,8 +1,8 @@
 # Changelog — GeoPotential Professional (MSP)
 
-Every update to this tree, numbered. The scheme is the workspace's:
-`../docs/VERSIONING.md`. `MAJOR` stays at `0` until the application does the
-thing it exists to do end to end.
+Every update, numbered. `MAJOR` stays at `0` until the application does the
+thing it exists to do end to end; `MINOR` moves when a milestone closes;
+`PATCH` moves for everything else.
 
 Two packages, two version sources — `app/geopotential_app/_version.py` and
 `worker/geopotential_worker/_version.py` — because they ship as two processes
@@ -11,6 +11,83 @@ both.
 
 Each entry says what the update delivers **and what it does not**, because a
 changelog that only lists gains is how a project loses track of its own gaps.
+
+---
+
+## app `0.8.12` — 2026-09-18 · Uma gravação de verdade, numa tela que não é a sua
+
+`tools/record_demo.py` grava a aplicação funcionando: **janela real, servidor X
+real, ponteiro se movendo**, dois minutos.
+
+**A tela da máquina nunca entra no quadro.** O app roda num `Xvfb` privado,
+criado para a gravação e destruído depois. Gravar o `:0` não teria exigido
+pacote nenhum e teria capturado o que estivesse aberto.
+
+A interface é dirigida pelos próprios objetos do shell — como as storyboards
+fazem, nunca clicando em coordenada adivinhada — então uma cena que não pode
+acontecer não é gravada como se tivesse acontecido. O ponteiro é movido à
+parte, sobre o canvas, e a barra de status lê a coordenada e o valor sob ele.
+
+O percurso: o assistente **recusando** o CSV sem CRS e a declaração que levanta
+a recusa · o mapa de fundo chegando por baixo do dado · três rampas · os quatro
+temas · a validação cruzada dos três interpoladores · o campo Clough-Tocher ·
+a pertinência · a bancada de campos potenciais · o modelo de decisão.
+
+**Os dois vídeos ficam.** O montado dos quadros gateados não consegue mostrar
+uma tela que o produto não produz; a gravação ao vivo é mais convincente e
+prova menos — nada nela falha se a interface mudar.
+
+### Dois defeitos meus, e o que cada um ensinou
+
+- **Core dump sem traceback.** O Xvfb não tem GPU nem GL, e o scene graph do
+  Qt Quick pede uma: o processo morre na thread de render. O rasterizador por
+  software desenha os mesmos quadros, mais devagar.
+- **Esperar por relógio em vez de por estado.** Declarar o CRS reinicia um
+  debounce de 450 ms e submete uma verificação nova; um `settle` fixo gravou a
+  tela ainda dizendo *"Blocked"* com a resposta em trânsito. Passou a esperar
+  por `usable`.
+
+**O que não entrega:** o `.mp4` não embute em README do GitHub — entra como
+link ou anexo de release, com o GIF no corpo; a gravação ao vivo não é gateada
+por nada; e o AHP continua sem caminho na interface, então não aparece no
+vídeo porque não existe na tela.
+
+---
+
+## app `0.8.11` — 2026-09-18 · Um clone que roda sozinho
+
+Vinte e um arquivos escreviam `ROOT.parent / "data"`, cada um por conta
+própria. Funciona no workspace onde este projeto foi desenvolvido, em que os
+dados são irmãos da árvore — e **em nenhum clone**: extraída a árvore do
+produto com os dados dentro dela, o gate reportou **17 checagens `BLOCKED`**
+por fixtures que estavam ali do lado.
+
+Um repositório que só roda quando seus dados vivem um diretório acima dele não
+é um repositório que alguém clona.
+
+- **`tools/datadir.py`**, uma resposta só: `data/` dentro da árvore quando
+  existe, ao lado quando não, e `GEOPOTENTIAL_DATA` quando o checkout a guarda
+  em outro lugar. **Dentro ganha** — um checkout carrega os próprios dados, e
+  é contra essa cópia que os gates dele foram escritos.
+- Vinte e um arquivos passam a resolver os dois layouts.
+- **`tools/make_demo_video.py`**: o vídeo de demonstração, montado dos quadros
+  de storyboard — que são evidência conferida, não captura de tela. O que a
+  ferramenta acrescenta é só tempo: espera em cada quadro, fusão entre eles, e
+  uma escala lenta. Dois datasets reais em sequência, Utah FORGE e as camadas
+  de deslizamento: uma demo num dataset mostra um fluxo, em dois mostra que o
+  fluxo não é sobre o dataset. Codificado com o ffmpeg estático do
+  `imageio-ffmpeg`, dentro do ambiente Python — **nada instalado na máquina**.
+  32 s, 2,8 MB.
+
+Uma gravação de tela de alguém dirigindo a aplicação seria mais bonita e
+provaria menos: ninguém poderia reexecutá-la, e nada falharia se a tela
+mudasse. Estes quadros são regerados e reconferidos pelo gate a cada rodada.
+
+Gate 37/37 na árvore, e **37/37 numa cópia extraída** — que era a pergunta.
+
+**O que não entrega:** o vídeo não é interação real, é sequência de quadros
+com fusão; e o `.mp4` não embute em README do GitHub, então ele entra como
+link ou anexo de release, com o GIF ficando no corpo.
 
 ---
 
@@ -258,7 +335,7 @@ vinte camadas, todas raster, todas já numa grade. Nenhum dos dois faz o produto
 atravessar **um raster contra um levantamento esparso em dois CRS diferentes**,
 que é o caso comum.
 
-`../data/southern_africa/`, sobre o Bushveld — a maior intrusão máfica
+`data/southern_africa/`, sobre o Bushveld — a maior intrusão máfica
 acamadada conhecida:
 
 | Camada | Tipo | Formato | CRS | Grandeza |
@@ -313,13 +390,13 @@ o dado não tem.
   procedência aqui é mais fraca que a dos outros diretórios — e está dito.
 - **A região não tem storyboard.** A corrente roda num teste; não há quadro
   mostrando o mapa dela na tela.
-- `../data/` passou de 99 MB para 105 MB.
+- `data/` passou de 99 MB para 105 MB.
 
 ---
 
-## app `0.8.06` · worker `0.5.05` — 2026-09-15 · Todo arquivo de `../data/` é exercitado
+## app `0.8.06` · worker `0.5.05` — 2026-09-15 · Todo arquivo de `data/` é exercitado
 
-Medido antes de consertar: **26 dos 56 arquivos** de `../data/` não eram
+Medido antes de consertar: **26 dos 56 arquivos** de `data/` não eram
 citados por teste nem storyboard nenhum da árvore. Doze camadas de
 deslizamento, dois levantamentos do Utah FORGE, e quase tudo que o M0 gerou em
 `data/synthetic/` e depois parou de usar.
@@ -384,7 +461,7 @@ de texto como `value_field` é recusado por nome, listando as numéricas.
 
 **O que não entrega:**
 
-- **`../data/` passou de 73 MB para 99 MB.** O aeromagnético recortado são
+- **`data/` passou de 73 MB para 99 MB.** O aeromagnético recortado são
   152 KB, mas o repositório continua carregando 69 MB de fixtures sintéticos
   que nada mede — `msp/canvas/` sozinho são dois rasters de 16 Mpx.
 - **A magnetometria real não tem storyboard.** Ela atravessa os operadores num
@@ -654,7 +731,7 @@ A aplicação sempre foi agnóstica de domínio **por desenho** — só 8 dos 26
 operadores são de geofísica. Mas isso nunca tinha sido **provado**: todo gate e
 toda storyboard rodavam sobre o dataset geotérmico de Utah.
 
-Rodar o caminho MCDA sobre `../data/conditioning_factors/` — 20 camadas de
+Rodar o caminho MCDA sobre `data/conditioning_factors/` — 20 camadas de
 suscetibilidade a deslizamento, EPSG:5186, Coreia — **achou dois defeitos**,
 porque Utah tem um tipo de camada e este tem três.
 

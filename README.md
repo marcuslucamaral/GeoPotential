@@ -7,18 +7,19 @@ It loads vector, raster and tabular layers, brings them onto one analysis grid,
 turns each into a dimensionless suitability membership, and aggregates them
 into a prospectivity map — recording every choice that produced it.
 
+[![gate](https://github.com/marcuslucamaral/GeoPotential/actions/workflows/gate.yml/badge.svg)](https://github.com/marcuslucamaral/GeoPotential/actions/workflows/gate.yml)
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
 ![PySide6](https://img.shields.io/badge/GUI-PySide6%20%2F%20Qt%20Quick-41cd52)
 ![rasterio](https://img.shields.io/badge/geo-rasterio%20%C2%B7%20GeoPandas%20%C2%B7%20pyproj-orange)
 ![Linux x86_64](https://img.shields.io/badge/platform-Linux%20x86__64-lightgrey)
-![gate 37/37](https://img.shields.io/badge/gate-37%2F37-brightgreen)
-![tests 1000](https://img.shields.io/badge/tests-1000-brightgreen)
+![checks 37](https://img.shields.io/badge/checks-37-blue)
+![tests 1000](https://img.shields.io/badge/tests-1000-blue)
 ![licence](https://img.shields.io/badge/licence-Apache--2.0-blue)
 ![status](https://img.shields.io/badge/status-in%20development-orange)
 
 > ### 🚧 In development
 >
-> This is version `0.8.11` and it is **not 1.0**. The whole path — import,
+> This is version `0.8.12` and it is **not 1.0**. The whole path — import,
 > QA/QC, gridding, harmonisation, membership, aggregation — runs end to end and
 > is covered by an executable gate. What is not finished is listed openly in
 > **[What is not done yet](#what-is-not-done-yet)**, and the `CHANGELOG.md`
