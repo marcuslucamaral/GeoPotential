@@ -68,16 +68,21 @@ jobs:
       # opens a window and uses it runs instead of reporting BLOCKED. Every
       # other check sets its own platform and is unaffected.
       - name: Gate
-        run: xvfb-run -a --server-args="-screen 0 1440x880x24" ./tools/run_gate.sh
+        run: |
+          set -o pipefail
+          xvfb-run -a --server-args="-screen 0 1440x880x24" \
+            ./tools/run_gate.sh 2>&1 | tee gate.log
 
-      # A green tick says the gate passed. When it does not, the reason should
-      # not require re-running anything locally.
+      # A green tick says the gate passed. When it does not, the reason has to
+      # be readable without re-running anything: the gate's own transcript,
+      # then the numbers each storyboard frame was asserted against.
       - name: Keep the evidence a failing run produced
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: gate-output
           path: |
+            gate.log
             docs/validation/images/**/frames.json
             docs/validation/images/**/STORYBOARD.md
           if-no-files-found: ignore

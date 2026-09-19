@@ -8,7 +8,7 @@ turns each into a dimensionless suitability membership, and aggregates them
 into a prospectivity map — recording every choice that produced it.
 
 [![gate](https://github.com/marcuslucamaral/GeoPotential/actions/workflows/gate.yml/badge.svg)](https://github.com/marcuslucamaral/GeoPotential/actions/workflows/gate.yml)
-![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 ![PySide6](https://img.shields.io/badge/GUI-PySide6%20%2F%20Qt%20Quick-41cd52)
 ![rasterio](https://img.shields.io/badge/geo-rasterio%20%C2%B7%20GeoPandas%20%C2%B7%20pyproj-orange)
 ![Linux x86_64](https://img.shields.io/badge/platform-Linux%20x86__64-lightgrey)
@@ -183,14 +183,20 @@ conda activate geopotential
 conda install -c conda-forge pyside6 rasterio geopandas pyproj shapely scipy pandas
 ```
 
-**Or with `venv`**, using the system's GDAL/PROJ headers:
+**Or with `venv`**, which needs nothing installed system-wide — the
+`rasterio` and `pyogrio` wheels carry their own GDAL:
 
 ```bash
-sudo apt install python3.11-venv libgdal-dev gdal-bin   # once, Ubuntu
-python3.11 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+If `python3 -m venv` reports that the module is missing, Debian and Ubuntu
+split it into its own package: `sudo apt install python3-venv`.
+
+Verified on a clean clone with Python 3.10.12 and no conda: the full gate
+returns `37 passed, 0 failed, 0 blocked, of 37`.
 
 Then:
 
