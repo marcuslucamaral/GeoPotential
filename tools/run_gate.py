@@ -151,9 +151,17 @@ def run(args: list[str]) -> tuple[int, str]:
     return proc.returncode, (proc.stdout + proc.stderr).strip()
 
 
+#: What a failing check printed, kept so a red gate can be read on a machine
+#: nobody can log into. A tally names no test, and "FAILED (failures=1)" is
+#: not something anyone can act on.
+TRANSCRIPTS: dict[str, str] = {}
+
+
 def run_architecture() -> tuple[str, str]:
     code, output = run([str(ROOT / "tools" / "architecture_check.py")])
     headline = output.splitlines()[0] if output else "no output"
+    if code != 0:
+        TRANSCRIPTS["architecture"] = output
     return ("PASS" if code == 0 else "FAIL"), headline
 
 
@@ -212,6 +220,8 @@ def run_storyboards() -> tuple[str, str]:
     code, output = run([str(ROOT / "tools" / "capture_sequence.py"),
                         "--all", "--check"])
     lines = [l.strip() for l in output.splitlines() if "frames ok" in l]
+    if code != 0:
+        TRANSCRIPTS["storyboards"] = output
     return ("PASS" if code == 0 else "FAIL"), (
         "; ".join(l.split(";")[0] for l in lines) if lines else "no storyboard ran"
     )
@@ -226,6 +236,7 @@ def run_schemas() -> tuple[str, str]:
     for script in ("generate_ipc_schemas.py", "export_project_schema.py"):
         code, output = run([str(ROOT / "tools" / script), "--check"])
         if code != 0:
+            TRANSCRIPTS["schemas"] = output
             return "FAIL", (output.splitlines()[0] if output else script)
     return "PASS", "IPC, project and operator schemas match the code"
 
@@ -247,6 +258,8 @@ def run_suite(name: str) -> tuple[str, str]:
     code, output = run(["-m", "unittest", module, "-v"])
     last = [l for l in output.splitlines() if l.startswith(("OK", "FAILED", "Ran "))]
     summary = " ".join(last[-2:]) if last else output.splitlines()[-1:] or ["no output"]
+    if code != 0:
+        TRANSCRIPTS[name] = output
     return ("PASS" if code == 0 else "FAIL"), (summary if isinstance(summary, str) else str(summary))
 
 
@@ -259,6 +272,8 @@ def run_interface(name: str) -> tuple[str, str]:
         return "BLOCKED", f"fixture absent: {fixture.relative_to(ROOT.parent)}"
     code, output = run(["-m", "geopotential_app", *args])
     tail = [l for l in output.splitlines() if "checks passed" in l]
+    if code != 0:
+        TRANSCRIPTS[name] = output
     return ("PASS" if code == 0 else "FAIL"), (tail[-1] if tail else "no summary line")
 
 
@@ -304,6 +319,19 @@ def main() -> int:
     blocked = sum(1 for _, s, _ in results if s == "BLOCKED")
     passed = len(results) - failed - blocked
     print(f"\n{passed} passed, {failed} failed, {blocked} blocked, of {len(results)}")
+    for name, _, _ in (r for r in results if r[1] == "FAIL"):
+        transcript = TRANSCRIPTS.get(name)
+        if not transcript:
+            continue
+        print(f"\n{'-' * 72}\n{name}\n{'-' * 72}")
+        lines = transcript.splitlines()
+        marks = [i for i, l in enumerate(lines)
+                 if l.startswith(("FAIL:", "ERROR:"))]
+        if marks:
+            for i in marks:
+                print("\n".join(lines[i:i + 22]))
+        else:
+            print("\n".join(lines[-40:]))
     if failed:
         return 1
     if blocked:
