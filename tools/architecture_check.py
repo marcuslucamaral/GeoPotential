@@ -33,8 +33,9 @@ PLOTTING = ("matplotlib", "plotly", "seaborn", "bokeh")
 WEB = ("flask", "fastapi", "uvicorn", "aiohttp", "tornado", "requests", "httpx",
        "starlette", "django")
 
-# Vocabulary that belongs to another project. AmoraSeismic is an engineering
-# reference; its domain has no meaning here and must not leak into names.
+# Vocabulary from reflection seismology. It has no meaning in this domain and
+# must not leak into names: a grid of criteria is not a seismic gather, and
+# borrowing the word invites borrowing the assumptions behind it.
 FORBIDDEN_WORDS = (
     "TraceMatrix", "SEG-Y", "SEGY", "segy", "gather", "NMO", "nmo",
     "migration", "velocity analysis",
@@ -239,8 +240,8 @@ def check_tree(app: Path, worker: Path) -> list[Violation]:
                 line = text.count("\n", 0, match.start()) + 1
                 violations.append(Violation(
                     path, line, "no-seismic-vocabulary",
-                    f"{word!r} belongs to AmoraSeismic, which is an engineering "
-                    f"reference and never a source of domain vocabulary"))
+                    f"{word!r} is reflection-seismic vocabulary and has no "
+                    f"meaning in this domain"))
 
     # ---- one version per package ----------------------------------------
     # The *software* version, and only that. `PROTOCOL_VERSION` and

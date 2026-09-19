@@ -9,8 +9,8 @@ Se você chegou aqui, está prestes a tocar em algo que **não é fonte de nada*
 
 ## Não leia
 
-Nem com `cat`, `grep`, `find`, `ls`, Read, Glob ou um subagente, e nunca como
-contexto de fundo.
+Nem com `cat`, `grep`, `find` ou `ls`, e nunca como leitura de apoio para
+responder a outra pergunta.
 
 Os `.toc`, o `warn-geopotential.txt` e o `xref-geopotential.html` são a
 contabilidade do próprio PyInstaller: eles repetem o que
